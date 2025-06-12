@@ -1,0 +1,56 @@
+// src/assets/scss/review.scss
+
+.review-list-section {
+    // Style chung cho khu vực review
+}
+
+.review-item {
+    .review-content {
+        white-space: pre-wrap; // Giữ lại xuống dòng trong review
+        word-break: break-word; // Ngắt từ nếu quá dài
+    }
+
+    .review-actions {
+        font-size: 0.8rem;
+    }
+}
+
+.star-rating-input {
+    .star {
+        cursor: pointer;
+        transition: color 0.2s;
+        font-size: 1.3rem; // Kích thước sao cho input
+        color: #ccc; // Màu sao rỗng
+
+        &.filled {
+            color: #ffc107; // Màu sao đầy (warning)
+        }
+
+        &:hover {
+            color: darken(#ffc107, 10%); // Đậm hơn khi hover
+            transform: scale(1.1); // Phóng to nhẹ khi hover
+        }
+
+        &.disabled {
+            cursor: default;
+            opacity: 0.7;
+        }
+    }
+}
+
+.star-display {
+
+    .fa-star,
+    .far-fa-star,
+    .fa-star-half-alt {
+        font-size: 0.9rem; // Kích thước sao hiển thị
+        margin-right: 1px;
+    }
+}
+
+.review-form {
+    background-color: var(--#{$prefix}secondary-bg); // Màu nền nhẹ
+    padding: 1rem;
+    border-radius: var(--#{$prefix}border-radius);
+    border: 1px solid var(--#{$prefix}border-color);
+}

@@ -1,0 +1,102 @@
+
+:root {
+    --w-skeleton-base-color: #eef0f2; // Màu cho theme sáng
+    --w-skeleton-highlight-color: #f8f9fa; // Màu cho theme sáng
+
+    &[data-ww-theme="dark"] {
+        --w-skeleton-base-color: #373c42;
+        --w-skeleton-highlight-color: #454b52;
+    }
+}
+
+// Animation cho skeleton
+@keyframes skeleton-pulse {
+    0% {
+        background-color: var(--w-skeleton-base-color);
+    }
+    50% {
+        background-color: var(--w-skeleton-highlight-color);
+    }
+    100% {
+        background-color: var(--w-skeleton-base-color);
+    }
+}
+
+// Class chung cho các element placeholder trong skeleton
+.placeholder {
+    display: inline-block;
+    height: 1em; // Chiều cao mặc định
+    background-color: var(--w-skeleton-base-color);
+    border-radius: 0.25rem; // Bo góc nhẹ
+    animation: skeleton-pulse 1.5s infinite ease-in-out;
+    opacity: 0.7;
+    user-select: none;
+}
+
+// Style cho Skeleton Loader của Sidebar
+.film-sidebar__section {
+    .film-sidebar__title.placeholder-title {
+        height: 24px;
+        width: 70%;
+        margin-bottom: 1rem;
+        background-color: var(--w-skeleton-base-color);
+        border-radius: var(--w-border-radius-sm, 0.25rem);
+        animation: skeleton-pulse 1.5s infinite ease-in-out;
+    }
+}
+
+.skeleton-sidebar-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 0; // Tương tự padding của item thật
+    border-bottom: 1px solid var(--w-border-color-translucent); // Đường kẻ mờ
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .skeleton-sidebar-title {
+        height: 18px; // Chiều cao của dòng tên phim
+        width: 80%;   // Chiều rộng ví dụ
+        margin-bottom: 0.35rem;
+    }
+
+    .skeleton-sidebar-meta {
+        height: 14px; // Chiều cao của dòng thông tin phụ (tập phim)
+        width: 50%;   // Chiều rộng ví dụ
+    }
+}
+
+.skeleton-card {
+    border-radius: var(--w-border-radius-lg, 0.5rem);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    &.comic-card {
+        .skeleton-image {
+            padding-top: 150%;
+        }
+    }
+    .skeleton-image {
+        width: 100%;
+        padding-top: 56.25%; // Duy trì tỷ lệ khung hình (ví dụ 2:3 => 150%, 16:9 => 56.25%)
+        background-color: var(--w-skeleton-base-color);
+        animation: skeleton-pulse 1.5s infinite ease-in-out;
+    }
+    .skeleton-title {
+        height: 20px;
+        margin: 10px 10px 5px 10px;
+        background-color: var(--w-skeleton-base-color);
+        animation: skeleton-pulse 1.5s infinite ease-in-out;
+        border-radius: 4px;
+    }
+    .skeleton-meta {
+        height: 15px;
+        margin: 0 10px 10px 10px;
+        background-color: var(--w-skeleton-base-color);
+        animation: skeleton-pulse 1.5s infinite ease-in-out;
+        border-radius: 4px;
+        width: 60%;
+    }
+}

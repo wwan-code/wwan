@@ -1,0 +1,159 @@
+// src/assets/scss/pages/_notifications-page.scss
+
+// Biến màu và style chung (ví dụ)
+// $notif-unread-bg: rgba(var(--w-primary-rgb), 0.05);
+// $notif-read-bg: var(--w-card-bg);
+// $notif-border-color: var(--w-border-color-translucent);
+// $notif-text-color: var(--w-body-color);
+// $notif-meta-color: var(--w-secondary-text-emphasis);
+// $notif-link-color: var(--w-primary);
+
+.notifications-page-container {
+    padding-top: calc(24px + var(--w-header-height));
+}
+
+.notifications-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--w-border-color);
+
+    .notifications-page-title {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin: 0;
+        color: var(--w-headings-color);
+    }
+    .btn-custom { // Style cho nút "Đánh dấu đọc tất cả"
+        // (Kế thừa từ _buttons.scss hoặc định nghĩa ở đây)
+    }
+}
+
+.notifications-filters {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+
+    .filter-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.875rem;
+        border-radius: var(--w-border-radius-pill);
+        border: 1px solid var(--w-border-color);
+        background-color: var(--w-body-tertiary-bg);
+        color: var(--w-secondary-color);
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+            border-color: var(--w-primary);
+            color: var(--w-primary);
+        }
+        &.active {
+            background-color: var(--w-primary);
+            color: var(--w-primary-text-emphasis, #fff);
+            border-color: var(--w-primary);
+            font-weight: 500;
+        }
+    }
+}
+
+.notifications-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .notification-list-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 1rem;
+        border: 1px solid var(--w-border-color-translucent);
+        border-radius: var(--w-border-radius);
+        margin-bottom: 0.75rem;
+        background-color: var(--w-card-bg);
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        position: relative; // Cho nút actions
+
+        &:hover {
+            box-shadow: var(--w-box-shadow-sm);
+        }
+
+        &.is-read {
+            background-color: var(--w-body-tertiary-bg); // Nền mờ hơn cho thông báo đã đọc
+            opacity: 0.85; // Hơi mờ đi
+            .notification-list-item__message {
+                font-weight: normal;
+            }
+        }
+        &:not(.is-read) {
+             border-left: 4px solid var(--w-primary); // Viền trái cho thông báo chưa đọc
+        }
+
+        &.is-deleting {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        &__icon-wrapper {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--w-secondary-bg-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        &__icon-fa {
+            font-size: 1.2rem;
+            // Màu sắc sẽ được set bởi class text-* (text-warning, text-success, etc.)
+        }
+        &__icon-img {
+            width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+        }
+
+        &__content {
+            flex-grow: 1;
+            cursor: pointer;
+        }
+        &__message {
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+            color: var(--w-body-color);
+            line-height: 1.5;
+            font-weight: 500; // Đậm hơn cho thông báo chưa đọc (mặc định)
+            p { margin-bottom: 0; } // Nếu message là HTML
+        }
+        &__timestamp {
+            font-size: 0.75rem;
+            color: var(--w-tertiary-color, #888);
+        }
+
+        &__actions {
+            display: flex;
+            flex-direction: column; // Để các nút xếp dọc (hoặc row nếu muốn)
+            align-items: flex-end;
+            margin-left: auto; // Đẩy sang phải
+            padding-left: 0.5rem; // Khoảng cách với content
+            opacity: 0; // Ẩn mặc định
+            transition: opacity 0.2s ease;
+        }
+        &:hover .notification-list-item__actions {
+            opacity: 1; // Hiện khi hover item
+        }
+
+        .btn-action {
+            background: none;
+            border: none;
+            padding: 0.25rem 0.4rem;
+            color: var(--w-secondary-color);
+            font-size: 0.8rem;
+            cursor: pointer;
+            &:hover { color: var(--w-primary); }
+            &.btn-delete-notif:hover { color: var(--w-danger); }
+        }
+         .btn-mark-read-notif:hover { color: var(--w-success); }
+    }
+}

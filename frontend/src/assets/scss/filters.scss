@@ -1,0 +1,113 @@
+.filters {
+    padding: 1rem;
+
+    &:not(.filters--mobile) {
+        padding: 24px 40px;
+        background: rgba(var(--w-secondary-bg-rgb), 1);
+        backdrop-filter: blur(8px);
+        border-radius: 8px;
+    }
+
+    &--mobile {
+        padding: 0.75rem;
+
+        .filters__block {
+            display: grid;
+            grid-column-gap: 16px;
+            grid-template-columns: max-content auto
+        }
+    }
+
+    &__block {
+        margin-bottom: 1.5rem;
+    }
+
+    &__label {
+        &:not(.filters__label--mobile) {
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        font-size: 1rem;
+        display: block;
+        color: var(--w-emphasis-color);
+        font-weight: 400;
+        white-space: nowrap;
+
+        &--mobile {
+            font-size: 0.9rem;
+        }
+    }
+
+    &__tab {
+        &.wstar-tab.filters__tab--mobile {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    .wstar-tab {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        &--solid {
+            padding: 0;
+        }
+
+        &__item {
+            padding: 0.25rem 0.4rem;
+            border-radius: 6px;
+            color: var(--w-body-color);
+            font-size: 0.85rem;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+
+            &:hover {
+                background-color: rgba(var(--w-primary-rgb), .1);
+                color: var(--w-primary);
+            }
+
+            &.active {
+                background-color: rgba(var(--w-primary-rgb), .1);
+                color: var(--w-primary);
+            }
+
+            &.disabled {
+                pointer-events: none;
+                opacity: 0.6;
+            }
+
+            &.is-loading {
+                background-color: #e0e0e0;
+                color: transparent;
+                pointer-events: none;
+
+                .placeholder {
+                    display: block;
+                    height: 10px;
+                    width: 60px;
+                    background-color: #ccc;
+                    border-radius: 6px;
+                    animation: shimmer 1.5s infinite linear;
+                }
+            }
+        }
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -100px;
+    }
+
+    100% {
+        background-position: 100px;
+    }
+}

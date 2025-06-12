@@ -1,0 +1,53 @@
+// src/assets/scss/themes/_forest-calm.scss
+:root.custom-theme-theme-forest-calm {
+  --w-body-bg: #F0FFF0; // Xanh lá cây rất nhạt (Honeydew)
+  --w-body-color: #2F4F4F; // Dark Slate Gray
+  --w-card-bg: #FAFAF5;   // Linen white
+  --w-secondary-bg: #E8F5E9;
+  --w-secondary-color: #2F4F4F;
+  --w-paper-bg: #FBFFF0;
+
+  --w-border-color: #A5D6A7; // Xanh lá nhạt
+  --w-border-color-translucent: rgba(165, 214, 167, 0.4);
+  --w-border-radius: 0.3rem;
+
+  --w-primary: #4CAF50; // Xanh lá cây của rừng
+  --w-primary-rgb: 76, 175, 80;
+  --w-primary-dark: #388E3C;
+  --w-primary-light: #81C784;
+  --w-primary-text-emphasis: #FFFFFF;
+  --w-primary-bg-subtle: #E8F5E9;
+  --w-primary-border-subtle: #C8E6C9;
+
+  --w-secondary: #8D6E63; // Nâu gỗ
+  --w-secondary-rgb: 141, 110, 99;
+  --w-secondary-text-emphasis: #FFFFFF;
+  --w-secondary-bg-subtle: #EFEBE9;
+  --w-secondary-border-subtle: #D7CCC8;
+
+  --w-success: #66BB6A;
+  --w-info: #5C9DED;
+  --w-warning: #FFEE58; // Vàng nắng
+  --w-danger: #EF5350;
+
+  --w-header-bg: linear-gradient(to right, #689F38, #8BC34A); // Xanh lá đậm và nhạt
+  --w-header-text-color: #FFFFFF;
+  --w-footer-bg: #3E2723; // Nâu sẫm
+  --w-footer-text-color: #F0FFF0;
+
+  --w-link-color: var(--w-primary-dark);
+  --w-link-hover-color: #2E7D32; // Xanh lá đậm hơn nữa
+
+  --w-box-shadow: 0 3px 6px rgba(47, 79, 79, .1);
+  --w-box-shadow-sm: 0 1px 2px rgba(47, 79, 79, .07);
+
+  // body& {
+  //   background-image: url('/assets/images/theme_backgrounds/forest_pattern.svg');
+  //   background-size: 300px;
+  //   background-attachment: fixed;
+  // }
+
+  .section-title h3 {
+    color: var(--w-secondary); // Tiêu đề section màu nâu gỗ
+  }
+}

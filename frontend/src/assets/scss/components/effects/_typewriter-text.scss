@@ -1,0 +1,37 @@
+/* frontend/src/components/Effects/TypewriterText.css */
+.typewriter-wrapper {
+    /* Bạn có thể thêm style cho wrapper nếu cần */
+    display: inline-block;
+    /* Giúp cursor căn chỉnh tốt hơn */
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    /* Hoặc 'inline' tùy theo cursorChar */
+    margin-left: 1px;
+    /* Khoảng cách nhỏ giữa text và cursor */
+    opacity: 1;
+    animation: blink 0.7s infinite;
+    /* vertical-align: baseline; */
+    /* Điều chỉnh nếu cần */
+}
+
+/* Tắt animation nhấp nháy nếu cursorChar trống */
+.typewriter-cursor:empty {
+    animation: none;
+    display: none;
+    /* Ẩn nếu không có ký tự con trỏ */
+}
+
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}

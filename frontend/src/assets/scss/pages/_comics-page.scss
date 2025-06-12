@@ -1,0 +1,130 @@
+.body-comic-page .header {
+    .header-area {
+        background-color: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    &.header-fixed .header-area {
+        background-color: rgba(var(--w-body-bg-rgb), 0.45);
+        backdrop-filter: blur(10px);
+        box-shadow: var(--w-box-shadow);
+    }
+}
+
+:root {
+  --bg-color: #f9f9fb;
+  --text-color: #222;
+  --card-bg: #fff;
+  --shadow-light: rgba(0, 0, 0, 0.05);
+  --primary-color: #4a90e2;
+  --border-radius: 0.75rem;
+  --hover-bg: #eef3fa;
+}
+
+[data-ww-theme='dark'] {
+  --bg-color: #181a1b;
+  --text-color: #e6e6e6;
+  --card-bg: #242526;
+  --shadow-light: rgba(255, 255, 255, 0.03);
+  --hover-bg: #2c2f31;
+  --primary-color: #4aa3ef;
+}
+
+.comics-page {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  transition: all 0.3s ease;
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+
+  &__sidebar-col {
+    flex: 1 1 260px;
+    .filter-sidebar {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 16px var(--shadow-light);
+      transition: all 0.3s ease;
+    }
+  }
+
+  &__main-content-col {
+    flex: 3 1 700px;
+  }
+
+  &__section-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    .comics-page__section-title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .icon-before {
+        color: var(--primary-color);
+        font-size: 1.4rem;
+      }
+    }
+
+    .comics-page__search-results-count {
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+  }
+
+  &__card-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  &__no-results-found,
+  .error-message {
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    text-align: center;
+    color: #e74c3c;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px var(--shadow-light);
+
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .loading-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    .spinner-eff {
+      width: 40px;
+      height: 40px;
+      border: 4px solid var(--primary-color);
+      border-top: 4px solid transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+  }
+
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

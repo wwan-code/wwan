@@ -1,0 +1,91 @@
+// core.scss (hoặc main.scss)
+
+@charset "UTF-8";
+
+/*!
+ * Bootstrap  v5.3.3 (https://getbootstrap.com/)
+ * Copyright 2011-2024 The Bootstrap Authors
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+// Nhập timeline trước (nếu cần)
+@use "_timeline.scss"; // Điều chỉnh đường dẫn nếu cần
+
+// Nhập các biến
+@use "_variables.scss";
+@use "_dark-theme.scss";
+
+// Nhập các phần cơ bản và thành phần
+@use "_reboot.scss";
+@use "_typography.scss";
+@use "_images.scss";
+@use "_containers.scss";
+@use "_grid.scss";
+@use "_tables.scss";
+@use "_forms.scss";
+@use "_form-select.scss";
+@use "_buttons.scss";
+@use "_transitions.scss";
+@use "_dropdown.scss";
+@use "_button-group.scss";
+@use "_nav.scss";
+@use "_navbar.scss";
+@use "_card.scss";
+@use "_accordion.scss";
+@use "_avatar.scss";
+@use "_breadcrumb.scss";
+@use "_pagination.scss";
+@use "_badge.scss";
+@use "_alert.scss";
+@use "_progress.scss";
+@use "_list-group.scss";
+@use "_close.scss";
+@use "_toast.scss";
+@use "_modal.scss";
+@use "_tooltip.scss";
+@use "_popover.scss";
+@use "_carousel.scss";
+@use "_spinners.scss";
+@use "_offcanvas.scss";
+@use "_placeholders.scss";
+
+@use "_helpers.scss";
+@use "_utilities.scss";
+
+@use "_print.scss";
+
+@use 'themes/_ocean-sunset';
+@use 'themes/_dark-nebula';
+@use 'themes/_forest-calm';
+@use 'themes/_retro-pixel';
+@use 'themes/_minimalist-white';
+@use 'themes/_neon-city';
+@use 'themes/_vintage-paper';
+@use 'components/_user-avatar-display';
+@use 'components/custom-modal';
+@use 'components/custom-tooltip';
+@use 'components/button-custom';
+@use 'pages/_shop-page';
+
+.hero-background-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Đảm bảo canvas nằm dưới nội dung */
+}
+
+.page-loader {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; min-height: 70vh;
+    .spinner-eff { /* ... */ }
+    p { margin-top: 1rem; color: var(--w-secondary-text-emphasis); }
+}
+.loading-placeholder--small { text-align: center; padding: 1rem; .spinner--small { /* ... */ }}
+.no-content-message {
+    padding: 1.5rem; text-align: center; color: var(--w-secondary-text-emphasis);
+    font-style: italic; background-color: var(--w-body-tertiary-bg);
+    border-radius: var(--w-border-radius-sm);
+    .icon-empty { font-size: 2rem; margin-bottom: 0.5rem; opacity: 0.6;}
+}

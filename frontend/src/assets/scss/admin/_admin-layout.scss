@@ -1,0 +1,33 @@
+// src/assets/scss/admin/_admin-layout.scss
+.admin-page-container {
+    padding: 1.5rem; // Hoặc theo layout admin của bạn
+}
+.admin-page-header {
+    margin-bottom: 1.5rem;
+    .admin-page-title {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--w-headings-color);
+        .icon-before { margin-right: 0.6em; color: var(--w-primary); }
+    }
+}
+.admin-content-card {
+    background-color: var(--w-card-bg);
+    border: 1px solid var(--w-border-color-translucent);
+    border-radius: var(--w-border-radius-md);
+    box-shadow: var(--w-box-shadow-sm);
+    &__header {
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--w-border-color-translucent);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; // Cho responsive
+        gap: 1rem;
+    }
+    &__title { font-size: 1.1rem; font-weight: 500; margin: 0; }
+    &__body { padding: 1.25rem;
+        &.p-0 { padding: 0 !important; }
+    }
+    &__footer { padding: 1rem 1.25rem; border-top: 1px solid var(--w-border-color-translucent); }
+}

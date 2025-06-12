@@ -1,0 +1,96 @@
+.recommends {
+    overflow: hidden;
+}
+
+.recommends-header {
+    margin-bottom: 20px;
+}
+
+.recommends-header-title {
+    font-size: 1.35rem;
+    font-weight: bold;
+    color: var(--w-body-color);
+}
+
+.recommends__list {
+    position: relative;
+    display: grid;
+    transition: all .4s;
+
+    &:not(.recommends--mobile) {
+        margin-top: 16px;
+
+        @media (min-width: 992px) {
+            row-gap: 12px;
+        }
+
+        @media (max-width: 991.985px) {
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 16px;
+            row-gap: 12px;
+        }
+
+        @media (max-width: 767px) {
+            grid-template-columns: repeat(1, 1fr);
+            row-gap: 16px;
+        }
+
+        .empty-container {
+            margin: 48px 0 64px;
+        }
+
+        .recommends__card {
+            
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &.recommends--mobile {
+        .recommends__list {
+            row-gap: 16px;
+            margin-top: 12px;
+        }
+    }
+}
+
+.recommends__tab {
+    margin-top: 16px;
+}
+
+.recommends__loading {
+    margin: 48px auto 64px;
+}
+
+.recommends__more {
+    margin-top: 16px;
+    padding: 9px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #333;
+    font-weight: 700;
+    background: #ffffff;
+    border-radius: 8px;
+
+    @media (min-width: 992px) {
+        margin-top: 12px;
+    }
+
+    &::after {
+        content: "";
+        margin-right: 4px;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-color: transparent;
+        background-image: url(//p.bstarstatic.com/fe-static/bstar-web-new/client/assets/icon_arrow_left-dfc24df4.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        transform: rotate(180deg);
+    }
+}

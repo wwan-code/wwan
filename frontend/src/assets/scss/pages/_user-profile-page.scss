@@ -1,0 +1,123 @@
+.card-profile {
+    color: var(--w-card-color);
+    background-color: var(--w-card-bg);
+    border-radius: var(--w-border-radius-lg);
+    box-shadow: var(--w-box-shadow);
+    word-wrap: break-word;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.profile-section-card {
+    padding: var(--w-card-spacer-y) var(--w-card-spacer-x);
+    text-align: left;
+    background-color: var(--w-card-bg);
+    border-radius: var(--w-border-radius); // Bo góc nhỏ hơn card chính
+    box-shadow: var(--w-box-shadow); // Bóng đổ nhẹ hơn
+
+    &__title { // class cho h4 bên trong ProfileSectionCard
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--w-headings-color);
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid var(--w-primary-border-subtle);
+        display: flex;
+        align-items: center;
+
+        .icon-before {
+            margin-right: 0.75rem;
+            color: var(--w-primary);
+            font-size: 1.05em;
+            opacity: 0.9;
+            min-width: 22px;
+            text-align: center;
+        }
+    }
+    &__content {
+        flex: 1 1 auto;
+        color: var(--w-card-color);
+    }
+}
+
+.section-title-profile {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--w-headings-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--w-border-color-translucent);
+    display: flex;
+    align-items: center;
+
+    .icon-before {
+        margin-right: 0.75rem;
+        color: var(--w-primary);
+        font-size: 1rem;
+        opacity: 0.8;
+        min-width: 20px;
+        text-align: center;
+    }
+}
+
+.user-profile-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+
+    @media (min-width: 992px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.profile-friends-card-public {
+    .friend-list-profile-public {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        .friend-item-profile-public {
+            a {
+                display: block;
+                transition: opacity 0.2s ease;
+                &:hover { opacity: 0.8; }
+            }
+            .avatar-frame-wrapper {
+                width: 52px !important;
+                height: 52px !important;
+                padding: 2px !important;
+                img { width: 44px !important; height: 44px !important; }
+            }
+        }
+
+        .friend-item-profile-more {
+            font-size: 0.8rem;
+            color: var(--w-secondary-text-emphasis);
+            align-self: center;
+            padding: 0.5rem;
+        }
+    }
+}
+
+.profile-timeline-card-public {
+    .timeline-item {
+        font-size: 0.85rem;
+        padding: 0.5rem 0;
+
+        .timeline-event {
+            padding: 0.5rem 0.75rem;
+            border-left: 3px solid var(--w-primary-border-subtle);
+            background-color: var(--w-body-tertiary-bg);
+            border-radius: var(--w-border-radius-sm);
+        }
+
+        .timeline-event-time {
+            font-size: 0.75rem;
+        }
+    }
+}

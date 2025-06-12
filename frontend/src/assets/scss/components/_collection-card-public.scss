@@ -1,0 +1,144 @@
+// src/assets/scss/components/_collection-card-public.scss
+
+.collection-card-public {
+    background-color: var(--w-card-bg);
+    border: 1px solid var(--w-border-color-translucent);
+    border-radius: var(--w-border-radius-lg);
+    box-shadow: var(--w-box-shadow-sm);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+    height: 100%;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--w-box-shadow);
+    }
+
+    &__link {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    &__cover {
+        height: 160px;
+        background-color: var(--w-body-tertiary-bg);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: flex-end; // Đặt preview items ở dưới
+        justify-content: flex-start; // Đặt preview items ở trái
+        position: relative;
+        padding: 0.5rem; // Padding cho preview items
+
+        img { // Dùng cho trường hợp coverImage là thẻ img
+            width: 100%; height: 100%; object-fit: cover;
+        }
+    }
+
+    &__cover-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--w-secondary-text-emphasis);
+        opacity: 0.5;
+        i { font-size: 2.5rem; }
+    }
+
+    &__preview-items {
+        display: flex;
+        gap: 0.3rem; // Khoảng cách nhỏ giữa các ảnh preview
+        max-width: 70%; // Giới hạn chiều rộng của preview items
+
+        .preview-item-img {
+            width: 35px; // Kích thước ảnh preview
+            height: 50px;
+            object-fit: cover;
+            border-radius: var(--w-border-radius-xs, 3px);
+            border: 1px solid rgba(255, 255, 255, 0.6); // Viền trắng mờ
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+        &:hover .preview-item-img {
+            opacity: 1;
+        }
+    }
+
+    &__content {
+        padding: 0.9rem 1rem; // Giảm padding một chút
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-size: 1.05rem; // Giảm kích thước tiêu đề
+        font-weight: 600;
+        color: var(--w-headings-color);
+        margin-bottom: 0.35rem;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__meta {
+        font-size: 0.75rem;
+        color: var(--w-secondary-text-emphasis);
+        margin-bottom: 0.6rem;
+        display: flex;
+        justify-content: space-between; // Đẩy type badge sang phải
+        align-items: center;
+        flex-wrap: wrap; // Cho phép xuống dòng nếu không đủ chỗ
+        gap: 0.5rem;
+    }
+
+    &__item-count, &__type-badge {
+        display: inline-flex;
+        align-items: center;
+        font-weight: 500;
+    }
+    &__item-count .icon-before-small { margin-right: 0.3em; opacity: 0.8; }
+
+    &__type-badge {
+        font-size: 0.65rem;
+        padding: 0.2em 0.5em;
+        border-radius: var(--w-border-radius-pill);
+        text-transform: capitalize;
+
+        &.type-movie { background-color: var(--w-info-bg-subtle); color: var(--w-info-text-emphasis); }
+        &.type-comic { background-color: var(--w-success-bg-subtle); color: var(--w-success-text-emphasis); }
+    }
+
+    &__creator {
+        display: flex;
+        align-items: center;
+        font-size: 0.75rem;
+        color: var(--w-tertiary-color, #777);
+        margin-top: auto; // Đẩy xuống cuối card
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--w-border-color-translucent);
+
+        .avatar-frame-wrapper { // Style cho UserAvatarDisplay
+            width: 28px !important; height: 28px !important; // Kích thước nhỏ
+            padding: 1px !important;
+            margin-right: 0.4rem;
+            img { border: 1px solid var(--w-border-color); }
+        }
+        .creator-name {
+            text-decoration: none;
+            color: inherit;
+            font-weight: 500;
+            &:hover { color: var(--w-primary); }
+        }
+    }
+}

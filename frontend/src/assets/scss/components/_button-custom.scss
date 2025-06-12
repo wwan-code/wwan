@@ -1,0 +1,307 @@
+.btn-custom {
+    display: inline-flex; // Để icon và text căn giữa dễ dàng
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--w-body-color); // Màu chữ mặc định
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.45rem 0.9rem; // Kích thước padding mặc định (tương đương btn-md)
+    font-size: 0.9rem;      // Kích thước font mặc định
+    border-radius: var(--w-border-radius);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+                border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+                transform 0.15s ease-out;
+
+    &:hover {
+        text-decoration: none;
+        transform: translateY(-1px); // Hiệu ứng nhấc nhẹ khi hover
+        box-shadow: var(--w-box-shadow-sm);
+    }
+
+    &:focus, &.focus {
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(var(--w-primary-rgb), 0.25); // Shadow focus giống Bootstrap
+    }
+
+    &:disabled,
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.65;
+        box-shadow: none;
+        transform: none;
+    }
+
+    // Nút chứa icon
+    &.btn--with-icon {
+        .icon-before {
+            margin-right: 0.5em;
+        }
+        .icon-after {
+            margin-left: 0.5em;
+        }
+        // Spinner bên trong nút
+        .spinner--small, .spinner--tiny {
+            margin-right: 0.5em; // Nếu là icon trước text
+            // Hoặc margin-left nếu là icon sau text
+        }
+    }
+}
+
+// --- KÍCH THƯỚC BUTTON ---
+.btn--sm {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+    border-radius: var(--w-border-radius-sm);
+    .icon-before, .icon-after { margin-right: 0.4em; margin-left: 0.4em; font-size: 0.9em; }
+}
+
+.btn--lg {
+    padding: 0.6rem 1.2rem;
+    font-size: 1.1rem;
+    border-radius: var(--w-border-radius-lg);
+    .icon-before, .icon-after { margin-right: 0.6em; margin-left: 0.6em; }
+}
+
+// --- CÁC BIẾN THỂ MÀU (VARIANTS) ---
+
+// Hàm helper để tạo variant (tùy chọn)
+// @mixin button-variant($background, $border, $color, $hover-background, $hover-border, $hover-color, $active-background, $active-border, $active-color) {
+//     color: $color;
+//     background-color: $background;
+//     border-color: $border;
+//     &:hover {
+//         color: $hover-color;
+//         background-color: $hover-background;
+//         border-color: $hover-border;
+//     }
+//     &:focus, &.focus {
+//         box-shadow: 0 0 0 0.2rem rgba(mix(color-contrast($background), $background, 15%), .5);
+//     }
+//     &:active, &.active {
+//         color: $active-color;
+//         background-color: $active-background;
+//         border-color: $active-border;
+//     }
+//     &:disabled, &.disabled {
+//         color: $color;
+//         background-color: $background;
+//         border-color: $border;
+//     }
+// }
+
+// Primary Button
+.btn--primary {
+    color: var(--w-primary-text-emphasis, #fff);
+    background-color: var(--w-primary);
+    border-color: var(--w-primary);
+    &:hover {
+        color: var(--w-primary-text-emphasis, #fff);
+        background-color: color-mix(in sRGB, #000 10%, var(--w-primary)); // Sử dụng hàm darken nếu không có biến -dark
+        border-color: color-mix(in sRGB, #000 10%, var(--w-primary));
+    }
+    &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-primary-rgb), 0.5); }
+}
+.btn--outline-primary {
+    color: var(--w-primary);
+    border-color: var(--w-primary);
+    background-color: transparent;
+    &:hover {
+        color: var(--w-primary-text-emphasis, #fff);
+        background-color: var(--w-primary);
+        border-color: var(--w-primary);
+    }
+    &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-primary-rgb), 0.5); }
+}
+// Ghost style (chỉ text, nền trong suốt, có viền khi hover)
+.btn--primary-ghost {
+    color: var(--w-primary);
+    background-color: transparent;
+    border-color: transparent;
+    &:hover {
+        color: color-mix(in sRGB, #000 10%, var(--w-primary));
+        background-color: var(--w-primary-bg-subtle);
+        border-color: var(--w-primary-border-subtle); // Viền nhẹ khi hover
+    }
+    &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-primary-rgb), 0.25); }
+}
+
+
+// Secondary Button
+.btn--secondary {
+    color: var(--w-secondary-text-emphasis, var(--w-body-color));
+    background-color: var(--w-secondary-bg-subtle, #e9ecef); // Nền xám nhạt
+    border-color: var(--w-secondary-border-subtle, #ced4da);
+    &:hover {
+        color: var(--w-secondary-text-emphasis, var(--w-body-color));
+        background-color: darken(desaturate(#e9ecef,5%),5%);
+        border-color: darken(desaturate(#ced4da,5%),10%);
+    }
+    &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-secondary-rgb, (108,117,125)), 0.5); }
+}
+.btn--outline-secondary {
+    color: var(--w-secondary-text-emphasis, var(--w-body-color));
+    border-color: var(--w-secondary-border-subtle, #ced4da);
+    background-color: transparent;
+    &:hover {
+        color: var(--w-secondary-text-emphasis, var(--w-body-color));
+        background-color: var(--w-secondary-bg-subtle, #e9ecef);
+    }
+    &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-secondary-rgb, (108,117,125)), 0.5); }
+}
+.btn--secondary-ghost {
+    color: var(--w-secondary-text-emphasis, var(--w-body-color));
+    background-color: transparent;
+    border-color: transparent;
+    &:hover {
+        color: var(--w-body-color);
+        background-color: var(--w-body-tertiary-bg, #e9ecef); // Nền rất nhạt
+    }
+     &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-secondary-rgb, (108,117,125)), 0.25); }
+}
+
+// Success Button
+.btn--success {
+    color: var(--w-success-text-emphasis, #fff);
+    background-color: var(--w-success);
+    border-color: var(--w-success);
+    &:hover {
+        color: var(--w-success-text-emphasis, #fff);
+        background-color: color-mix(in sRGB, #000 10%, var(--w-success));
+        border-color: var(--w-btn-hover-bg);
+    }
+    &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-success-rgb), 0.5); }
+}
+.btn--outline-success {
+    color: var(--w-success);
+    border-color: var(--w-success);
+    background-color: transparent;
+    &:hover {
+        color: var(--w-success-text-emphasis, #fff);
+        background-color: var(--w-success);
+        border-color: var(--w-success);
+    }
+    &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-success-rgb), 0.5); }
+}
+.btn--success-ghost {
+    color: var(--w-success);
+    background-color: transparent;
+    border-color: transparent;
+    &:hover {
+        color: var(--w-success);
+        background-color: var(--w-success-bg-subtle, rgba(var(--w-success-rgb),0.1));
+    }
+    &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-success-rgb), 0.25); }
+ }
+
+
+// Danger Button
+.btn--danger {
+    color: var(--w-danger-text-emphasis, #fff);
+    background-color: var(--w-danger);
+    border-color: var(--w-danger);
+    &:hover {
+        color: var(--w-danger-text-emphasis, #fff);
+        background-color: color-mix(in sRGB, #000 10%, #dc3545);
+        border-color: color-mix(in sRGB, #000 15%, #dc3545);
+    }
+    &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-danger-rgb), 0.5); }
+}
+.btn--outline-danger { /* ... tương tự ... */ }
+.btn--danger-ghost {
+    color: var(--w-danger);
+    background-color: transparent;
+    border-color: transparent;
+    &:hover {
+        color: var(--w-danger);
+        background-color: var(--w-danger-bg-subtle, rgba(var(--w-danger-rgb),0.1));
+    }
+     &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-danger-rgb), 0.25); }
+}
+
+// Warning Button
+.btn--warning {
+    color: var(--w-warning-text-emphasis, #000);
+    background-color: var(--w-warning);
+    border-color: var(--w-warning);
+    &:hover {
+        color: var(--w-warning-text-emphasis, #000);
+        background-color: color-mix(in sRGB, #000 10%, #ffc107);
+        border-color: color-mix(in sRGB, #000 15%, #ffc107);
+    }
+    &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-warning-rgb), 0.5); }
+}
+.btn--outline-warning { /* ... tương tự ... */ }
+.btn--warning-ghost { /* ... tương tự ... */ }
+
+
+// Info Button
+.btn--info {
+    color: var(--w-info-text-emphasis, #000);
+    background-color: var(--w-info);
+    border-color: var(--w-info);
+    &:hover {
+        color: var(--w-info-text-emphasis, #000);
+        background-color: color-mix(in sRGB, #000 10%, #0dcaf0);
+        border-color: color-mix(in sRGB, #000 15%, #0dcaf0);
+    }
+    &:focus, &.focus { box-shadow: 0 0 0 0.2rem rgba(var(--w-info-rgb), 0.5); }
+}
+.btn--outline-info { /* ... tương tự ... */ }
+.btn--info-ghost { /* ... tương tự ... */ }
+
+
+// Light & Dark Buttons (ít dùng hơn cho action chính)
+.btn--light {
+    color: var(--w-dark, #000);
+    background-color: var(--w-light, #f8f9fa);
+    border-color: var(--w-light, #f8f9fa);
+    &:hover {
+        color: var(--w-dark, #000);
+        background-color: color-mix(in sRGB, #000 10%, #f8f9fa);
+        border-color: color-mix(in sRGB, #000 15%, #f8f9fa);
+    }
+}
+.btn--dark {
+    color: var(--w-light, #fff);
+    background-color: var(--w-dark, #212529);
+    border-color: var(--w-dark, #212529);
+    &:hover {
+        color: var(--w-light, #fff);
+        background-color: color-mix(in sRGB, #fff 10%, #212529);
+        border-color: color-mix(in sRGB, #fff 15%, #212529);
+    }
+}
+
+// Nút icon nhỏ (dùng cho các action không cần text)
+.btn-icon {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--w-secondary-text-emphasis);
+    padding: 0.3rem; // Padding nhỏ
+    font-size: 0.9rem;
+    border-radius: 50%; // Bo tròn
+    width: 32px; // Kích thước cố định
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1; // Đảm bảo icon căn giữa
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: var(--w-body-tertiary-bg);
+        color: var(--w-primary);
+    }
+    &.btn--sm { font-size: 0.8rem; width: 28px; height: 28px; }
+    &.btn--lg { font-size: 1.1rem; width: 40px; height: 40px; }
+
+    &.btn--danger:hover, &.btn--danger-ghost:hover { color: var(--w-danger); background-color: rgba(var(--w-danger-rgb), 0.1);}
+    &.btn--success:hover, &.btn--success-ghost:hover { color: var(--w-success); background-color: rgba(var(--w-success-rgb), 0.1);}
+}

@@ -1,0 +1,109 @@
+// src/assets/scss/themes/_dark-nebula.scss
+:root.custom-theme-theme-dark-nebula {
+  // Màu sắc cơ bản cho theme tối
+  --w-body-bg: #0B0C1D;  // Xanh đen rất đậm của vũ trụ
+  --w-body-bg-rgb: 11, 12, 29;
+  --w-body-color: #D0D0E0; // Chữ màu xám nhạt, gần trắng
+  --w-body-color-rgb: 208, 208, 224;
+  --w-card-bg: #1A1438;    // Nền card tối hơn, có chút tím
+  --w-secondary-bg: #231E4A;
+  --w-secondary-color: #D0D0E0;
+  --w-paper-bg: #161230;
+  --w-paper-bg-rgb: 22, 18, 48;
+
+  --w-border-color: #3A306D; // Viền màu tím sẫm
+  --w-border-color-translucent: rgba(58, 48, 109, 0.5);
+  --w-border-radius: 0.5rem; // Bo góc rõ hơn trên nền tối
+
+  // Màu chủ đạo - Tím tinh vân
+  --w-primary: #BE63F2; // Tím sáng hơn cho theme tối
+  --w-primary-rgb: 190, 99, 242;
+  --w-primary-dark: #A04ED0;
+  --w-primary-light: #D48FF7;
+  --w-primary-text-emphasis: #100c20; // Chữ tối trên nền primary sáng
+  --w-primary-bg-subtle: #2C1F4A;     // Nền rất tối của primary
+  --w-primary-border-subtle: #4A306D;
+
+  // Màu phụ trợ - Xanh dương tinh vân
+  --w-secondary: #5C73F2;
+  --w-secondary-rgb: 92, 115, 242;
+  --w-secondary-text-emphasis: #FFFFFF;
+  --w-secondary-bg-subtle: #222A54;
+  --w-secondary-border-subtle: #384077;
+
+  --w-emphasis-color: var(--w-primary-text-emphasis);
+  --w-emphasis-color-rgb: 197, 179, 230;
+  --w-emphasis-bg: var(--w-primary-bg-subtle);
+  --w-emphasis-bg-rgb: 44, 31, 74;
+  --w-emphasis-border-color: var(--w-primary-border-subtle);
+
+  --w-tertiary: #A04ED0;
+  --w-tertiary-rgb: 160, 78, 208;
+  --w-tertiary-text-emphasis: #FFFFFF;
+  --w-tertiary-bg-subtle: #222A54;
+  --w-tertiary-border-subtle: #384077;
+  --w-tertiary-color: var(--w-tertiary-text-emphasis);
+  --w-tertiary-color-rgb: 255, 255, 255;
+  --w-tertiary-bg: var(--w-tertiary-bg-subtle);
+  --w-tertiary-bg-rgb: 34, 42, 84;
+  --w-tertiary-border-color: var(--w-tertiary-border-subtle);
+
+  // Các màu khác
+  --w-success: #4CAF50;
+  --w-success-rgb: 76, 175, 80;
+  --w-info: #2196F3;
+  --w-info-rgb: 33, 150, 243;
+  --w-warning: #FFC107;
+  --w-warning-rgb: 255, 193, 7;
+  --w-danger: #F44336;
+  --w-danger-rgb: 244, 67, 54;
+
+  // Header & Footer
+  --w-header-bg: linear-gradient(135deg, #0F0C29 0%, #302B63 50%, #24243E 100%);
+  --w-header-text-color: var(--w-body-color);
+  --w-footer-bg: #161230;
+  --w-footer-text-color: #8A87A0; // Xám nhạt hơn cho footer
+
+  // Link
+  --w-link-color: var(--w-primary-light);
+  --w-link-hover-color: #FFFFFF;
+
+  // Buttons
+  --w-btn-primary-bg: var(--w-primary);
+  --w-btn-primary-border-color: var(--w-primary);
+  --w-btn-primary-hover-bg: var(--w-primary-dark);
+  --w-btn-primary-hover-border-color: var(--w-primary-dark);
+  --w-btn-primary-text-color: var(--w-primary-text-emphasis);
+
+  // Box shadows (sử dụng màu tối hơn và lan tỏa rộng hơn)
+  --w-box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,.35);
+  --w-box-shadow-sm: 0 0.125rem .5rem rgba(0,0,0,.25);
+  --w-box-shadow-lg: 0 1rem 3.5rem rgba(0,0,0,.45);
+
+  // Form controls trên nền tối
+  .form-control, .form-select {
+    background-color: var(--w-secondary-bg);
+    color: var(--w-body-color);
+    border-color: var(--w-border-color);
+    &:focus {
+      background-color: #282252; // Hơi sáng hơn chút khi focus
+      border-color: var(--w-primary);
+      box-shadow: 0 0 0 0.25rem rgba(var(--w-primary-rgb), 0.25);
+    }
+    &::placeholder {
+      color: rgba(var(--w-body-color-rgb), 0.6);
+    }
+  }
+
+  .dropdown-menu, .modal-content {
+    background-color: var(--w-paper-bg);
+    color: var(--w-body-color);
+    border: 1px solid var(--w-border-color);
+  }
+  .dropdown-item:hover, .dropdown-item:focus {
+    background-color: var(--w-secondary-bg);
+  }
+  .btn-close { // Nút close của modal/offcanvas trên nền tối
+      filter: invert(1) grayscale(100%) brightness(200%);
+  }
+}

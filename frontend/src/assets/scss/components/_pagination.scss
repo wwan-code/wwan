@@ -1,0 +1,108 @@
+// src/assets/scss/components/_pagination.scss
+
+// Biến màu và style (kế thừa hoặc định nghĩa ở đây)
+// $pagination-bg: var(--w-card-bg, #fff);
+// $pagination-border-color: var(--w-border-color, #dee2e6);
+// $pagination-active-bg: var(--w-primary, #0d9394);
+// $pagination-active-border-color: var(--w-primary, #0d9394);
+// $pagination-active-color: var(--w-primary-text-emphasis, #fff);
+// $pagination-color: var(--w-link-color, var(--w-primary));
+// $pagination-hover-bg: var(--w-body-tertiary-bg, #e9ecef);
+// $pagination-hover-color: var(--w-link-hover-color, darken($pagination-color, 15%));
+// $pagination-disabled-bg: var(--w-secondary-bg, #f8f9fa);
+// $pagination-disabled-color: var(--w-secondary-text-emphasis, #6c757d);
+// $pagination-border-radius: var(--w-border-radius, 0.375rem);
+// $pagination-padding-y: 0.45rem;
+// $pagination-padding-x: 0.85rem;
+// $pagination-font-size: 0.9rem;
+
+.pagination-nav-container {
+    display: flex;
+    justify-content: center; // Căn giữa thanh phân trang
+    margin-top: 2rem; // Khoảng cách với nội dung phía trên
+    margin-bottom: 1rem;
+}
+
+.pagination-list {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: var(--w-border-radius-lg, 0.5rem); // Bo góc cho cả cụm
+    box-shadow: var(--w-box-shadow-sm); // Thêm bóng mờ nhẹ
+    overflow: hidden; // Để bo góc hoạt động đúng với item đầu/cuối
+
+    .pagination-item {
+        // Không cần margin giữa các item nếu dùng border-left
+
+        &:first-child .pagination-link {
+            border-top-left-radius: var(--w-border-radius-lg);
+            border-bottom-left-radius: var(--w-border-radius-lg);
+        }
+        &:last-child .pagination-link {
+            border-top-right-radius: var(--w-border-radius-lg);
+            border-bottom-right-radius: var(--w-border-radius-lg);
+            border-right: 1px solid var(--w-pagination-border-color, var(--w-border-color)); // Border cho item cuối
+        }
+
+        &.disabled .pagination-link {
+            color: var(--w-pagination-disabled-color, var(--w-secondary-text-emphasis));
+            pointer-events: none;
+            background-color: var(--w-pagination-disabled-bg, var(--w-body-tertiary-bg));
+            border-color: var(--w-pagination-border-color, var(--w-border-color));
+            opacity: 0.7;
+        }
+
+        &.active .pagination-link {
+            z-index: 3;
+            color: var(--w-pagination-active-color, #fff);
+            background-color: var(--w-pagination-active-bg, var(--w-primary));
+            border-color: var(--w-pagination-active-border-color, var(--w-primary));
+            font-weight: 600;
+        }
+
+        &.pagination-item--dots span {
+            padding: var(--w-pagination-padding-y, 0.45rem) var(--w-pagination-padding-x, 0.85rem);
+            color: var(--w-pagination-disabled-color, var(--w-secondary-text-emphasis));
+            background-color: var(--w-pagination-bg, var(--w-card-bg));
+            border: 1px solid var(--w-pagination-border-color, var(--w-border-color));
+            border-right-width: 0; // Bỏ border phải cho dots
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .pagination-link {
+        position: relative;
+        display: block;
+        padding: var(--w-pagination-padding-y, 0.45rem) var(--w-pagination-padding-x, 0.85rem);
+        font-size: var(--w-pagination-font-size, 0.9rem);
+        color: var(--w-pagination-color, var(--w-primary));
+        text-decoration: none;
+        background-color: var(--w-pagination-bg, var(--w-card-bg));
+        border: 1px solid var(--w-pagination-border-color, var(--w-border-color));
+        border-right-width: 0; // Hầu hết các item không có border phải, item cuối sẽ có
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        cursor: pointer;
+        line-height: 1.5; // Đảm bảo chiều cao nhất quán
+
+        &:hover {
+            z-index: 2;
+            color: var(--w-pagination-hover-color, var(--w-link-hover-color));
+            background-color: var(--w-pagination-hover-bg, var(--w-body-tertiary-bg));
+            border-color: var(--w-pagination-border-color, var(--w-border-color)); // Giữ border color khi hover
+        }
+
+        &:focus {
+            z-index: 3;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(var(--w-primary-rgb), 0.25); // Hiệu ứng focus
+        }
+
+        &--arrow { // Style cho nút mũi tên
+            i {
+                font-size: 0.8em; // Icon nhỏ hơn một chút
+                vertical-align: middle;
+            }
+        }
+    }
+}

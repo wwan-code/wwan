@@ -1,0 +1,339 @@
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
+
+.header-search {
+    position: relative;
+    margin: 0 auto;
+    min-width: 164px;
+    max-width: 500px;
+    box-sizing: content-box;
+    display: none;
+
+    @media (min-width: $bp-lg) {
+        display: block;
+    }
+
+    .is-focused {
+        box-shadow: 0 0 30px #0000001a;
+        border-radius: 8px;
+
+        .search-box {
+            border-radius: 8px 8px 0px 0px;
+            color: var(--w-primary);
+            background-color: rgba(var(--w-paper-bg-rgb), 1);
+        }
+    }
+
+    .search-btn {
+        position: absolute;
+        top: 3px;
+        right: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        border: none;
+        border-radius: 6px;
+        color: var(--w-body-color);
+        line-height: 32px;
+        cursor: pointer;
+        transition: background-color .3s;
+
+        i {
+            color: var(--w-body-color);
+            font-size: 1rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        &:hover {
+            background-color: rgba(var(--w-body-bg-rgb), 1);
+        }
+    }
+
+    .search-box {
+        display: flex;
+        align-items: center;
+        padding: 0 48px 0 4px;
+        position: relative;
+        border-radius: 8px;
+        z-index: 1;
+        overflow: hidden;
+        line-height: 38px;
+        border: 1px solid rgba(var(--w-body-color-rgb), 0.05);
+        height: 40px;
+        background-color: var(--w-secondary-bg);
+        opacity: .9;
+        transition: background-color .3s;
+    }
+
+    .search-input {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding: 0 8px;
+        width: 100%;
+        height: 32px;
+        border-radius: 6px;
+        flex: 1;
+        overflow: hidden;
+        border: none;
+        background-color: transparent;
+        box-shadow: none;
+        color: var(--w-body-color);
+        font-size: 14px;
+        line-height: 32px;
+
+        &:focus {
+            outline: none;
+            color: var(--w-primary);
+            background-color: rgba(var(--w-body-bg-rgb), 1);
+        }
+
+        &[aria-expanded="true"] {
+            color: var(--w-primary);
+            background-color: rgba(var(--w-body-bg-rgb), 1);
+        }
+
+        &:focus~span i {
+            color: var(--w-primary);
+        }
+    }
+
+    .search-loading,
+    .search-noitem {
+        text-align: center;
+        padding: 10px;
+        color: var(--w-body-color);
+    }
+
+    .search-result {
+        background-color: rgba(var(--w-paper-bg-rgb), 1);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        min-height: 50px;
+        max-height: 612px;
+        border-radius: 0 0 8px 8px;
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        border: 1px solid rgba(var(--w-body-color-rgb), 0.05);
+        border-top: none;
+        overflow: hidden;
+        padding: 5px 0 0 10px;
+        transition: opacity 0.3s, visibility 0s linear 0.3s, height 0.2s;
+
+        &.activated {
+            opacity: 1;
+            visibility: visible;
+            height: auto;
+            transition: opacity 0.3s, visibility 0s linear 0s, height 0.2s;
+        }
+
+        .search-results-list {
+            max-height: calc(110px * 3);
+            overflow-y: auto;
+        }
+
+        .result-noitem {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            margin-bottom: 5px;
+            overflow: hidden;
+            position: relative;
+
+            &.selected {
+                background-color: rgba(var(--w-primary-rgb), 0.1);
+            }
+
+            >a {
+                display: grid;
+                grid-template-columns: 70px calc(100% - 70px - 0.375em);
+                gap: 0.375em;
+                text-decoration: none;
+                color: inherit;
+
+                &:hover {
+                    background-color: rgba(var(--w-body-color-rgb), 0.05);
+                    color: var(--w-primary);
+                }
+            }
+        }
+
+        .result-item-thumbnail {
+            position: relative;
+            width: 100%;
+            padding-top: 150%;
+            background: url(../images/loading.gif);
+            background-position: center;
+            background-size: cover;
+            border-radius: var(--w-border-radius-lg);
+            overflow: hidden;
+
+            .result-item-img-wrapper {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+                >img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+        }
+
+        .result-item-title {
+            font-size: 0.95rem;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--w-body-color);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .result-item-subTitle {
+            font-size: 0.75rem;
+            line-height: 1.2;
+            color: var(--w-secondary-text);
+            white-space: nowrap;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .search-history-section {
+            padding: 0.5rem 0;
+
+            .history-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.25rem 0.5rem; // Thêm padding
+                margin-bottom: 0.25rem;
+                border-bottom: 1px solid var(--w-border-color-translucent, rgba(0, 0, 0, 0.1)); // Đường kẻ mờ
+
+                .history-title {
+                    font-weight: 600;
+                    font-size: .875rem;
+                    color: var(--w-secondary-text); // Màu chữ cho tiêu đề lịch sử
+                }
+
+                .btn-clear-history {
+                    background: none;
+                    border: none;
+                    color: var(--w-primary); // Màu nút xóa
+                    font-size: .875rem;
+                    cursor: pointer;
+                    padding: 0.25rem;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .search-history-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                max-height: 200px; // Giới hạn chiều cao cho popup
+                overflow-y: auto;
+
+                .history-item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0.6rem 1rem;
+                    cursor: pointer;
+                    transition: background-color 0.15s ease-in-out;
+                    color: var(--w-body-color);
+
+                    &:hover,
+                    &.selected {
+                        background-color: var(--w-item-hover-bg, rgba(0, 0, 0, 0.05));
+                    }
+
+                    .history-term {
+                        flex-grow: 1;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        font-size: 0.9rem
+                    }
+
+                    .btn-remove-history-item {
+                        background: none;
+                        border: none;
+                        color: var(--w-secondary-text); // Màu nút xóa từng mục
+                        font-size: 1.1rem; // Kích thước icon xóa
+                        margin-left: 0.75rem;
+                        padding: 0.1rem 0.3rem;
+                        line-height: 1;
+                        cursor: pointer;
+                        opacity: 0.6; // Hơi mờ đi
+
+                        &:hover {
+                            color: var(--w-danger); // Màu đỏ khi hover nút xóa
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .result-item-link {
+            // Đảm bảo class này được dùng trong JSX cho <li> chứa Link
+            display: flex; // Đã có ở lần trước, đảm bảo nó còn
+            align-items: center; // Đã có
+            text-decoration: none;
+            color: inherit;
+
+            .item-type-badge {
+                font-size: 0.65em;
+                padding: 0.2em 0.45em;
+                vertical-align: middle;
+                border-radius: .25rem;
+            }
+        }
+    }
+
+    @media (min-width: $bp-lg) {
+        .search-box {
+            width: 270px;
+        }
+    }
+
+    @media (min-width: $bp-xl) {
+        .search-box {
+            width: 300px;
+        }
+    }
+
+    @media (min-width: $bp-xxl) {
+        .search-box {
+            width: 360px;
+        }
+    }
+}

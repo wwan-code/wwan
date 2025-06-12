@@ -1,0 +1,80 @@
+// src/assets/scss/pages/_collections-page.scss
+
+.collections-page-container {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.collections-page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    .collections-page-title {
+        font-size: clamp(2rem, 5vw, 2.75rem);
+        font-weight: 700;
+        color: var(--w-headings-color, var(--w-body-color));
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+
+        .icon-before {
+            margin-right: 0.5em;
+            color: var(--w-primary);
+        }
+    }
+
+    .collections-page-subtitle {
+        font-size: 1rem;
+        color: var(--w-secondary-text-emphasis);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.collections-filters-bar {
+    display: flex;
+    flex-wrap: wrap; // Cho phép xuống dòng trên mobile
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--w-card-bg);
+    border-radius: var(--w-border-radius-lg);
+    box-shadow: var(--w-box-shadow-sm);
+
+    .filter-search-input {
+        flex-grow: 1;
+        min-width: 200px; // Chiều rộng tối thiểu cho input search
+        // Style cho input search (kế thừa từ .form-control hoặc tùy chỉnh)
+        border-radius: var(--w-border-radius);
+        border-color: var(--w-border-color);
+        &:focus {
+            border-color: var(--w-primary);
+            box-shadow: 0 0 0 0.2rem rgba(var(--w-primary-rgb), 0.25);
+        }
+    }
+
+    .filter-selects {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .filter-select {
+        min-width: 150px;
+        border-radius: var(--w-border-radius);
+        border-color: var(--w-border-color);
+        &:focus {
+            border-color: var(--w-primary);
+            box-shadow: 0 0 0 0.2rem rgba(var(--w-primary-rgb), 0.25);
+        }
+    }
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}

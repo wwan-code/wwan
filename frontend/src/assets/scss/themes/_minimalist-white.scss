@@ -1,0 +1,79 @@
+// src/assets/scss/themes/_minimalist-white.scss
+:root.custom-theme-theme-minimalist-white {
+  // Màu sắc cơ bản - Trắng và Xám Nhạt
+  --w-body-bg: #FFFFFF;
+  --w-body-color: #333333; // Chữ màu xám đậm
+  --w-card-bg: #FFFFFF;
+  --w-secondary-bg: #F8F9FA; // Xám rất nhạt cho nền phụ
+  --w-secondary-color: #333333;
+  --w-paper-bg: #FFFFFF;
+
+  --w-border-color: #E0E0E0; // Viền màu xám nhạt
+  --w-border-color-translucent: rgba(0, 0, 0, 0.08);
+  --w-border-radius: 0.25rem; // Bo góc vừa phải
+  --w-border-radius-sm: 0.15rem;
+  --w-border-radius-lg: 0.35rem;
+
+  // Màu chủ đạo - Đen hoặc Xám Đậm
+  --w-primary: #212529; // Màu đen/xám đậm
+  --w-primary-rgb: 33, 37, 41;
+  --w-primary-dark: #000000;
+  --w-primary-light: #495057;
+  --w-primary-text-emphasis: #FFFFFF; // Chữ trắng trên nền primary
+  --w-primary-bg-subtle: #F1F3F5;
+  --w-primary-border-subtle: #DEE2E6;
+
+  // Màu phụ trợ - Xám trung tính
+  --w-secondary: #6C757D;
+  --w-secondary-rgb: 108, 117, 125;
+  --w-secondary-text-emphasis: #FFFFFF;
+  --w-secondary-bg-subtle: #E9ECEF;
+  --w-secondary-border-subtle: #CED4DA;
+
+  // Các màu khác (có thể làm nhạt hơn)
+  --w-success: #28a745;
+  --w-info: #17a2b8;
+  --w-warning: #ffc107;
+  --w-danger: #dc3545;
+
+  // Header & Footer
+  --w-header-bg: #FFFFFF;
+  --w-header-text-color: var(--w-primary);
+  --w-header-border-bottom: 1px solid var(--w-border-color); // Thêm viền dưới cho header
+  --w-footer-bg: #F8F9FA;
+  --w-footer-text-color: #6C757D;
+  --w-footer-border-top: 1px solid var(--w-border-color);
+
+  // Link
+  --w-link-color: var(--w-primary);
+  --w-link-hover-color: #000000;
+  --w-link-decoration: none;
+  --w-link-hover-decoration: underline;
+
+  // Buttons
+  --w-btn-primary-bg: var(--w-primary);
+  --w-btn-primary-border-color: var(--w-primary);
+  --w-btn-primary-hover-bg: var(--w-primary-dark);
+  --w-btn-primary-hover-border-color: var(--w-primary-dark);
+  --w-btn-primary-text-color: var(--w-primary-text-emphasis);
+  --w-btn-border-radius: var(--w-border-radius); // Đồng bộ bo góc nút
+
+  // Box shadows - Rất nhẹ hoặc không có
+  --w-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+  --w-box-shadow-sm: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.03);
+  --w-box-shadow-lg: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.07);
+
+  // Font chữ (có thể chọn font sans-serif mảnh hơn)
+  --w-font-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --w-body-font-family: var(--w-font-sans-serif);
+  --w-headings-font-family: var(--w-font-sans-serif);
+  --w-headings-font-weight: 400; // Tiêu đề không quá đậm
+
+  .section-title h3, h1, h2, h3, h4, h5, h6 {
+    font-weight: 500; // Giảm độ đậm của tiêu đề
+  }
+
+  .card, .modal-content, .dropdown-menu {
+    box-shadow: var(--w-box-shadow-sm); // Bóng mờ rất nhẹ
+  }
+}

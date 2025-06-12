@@ -1,0 +1,24 @@
+// src/assets/scss/components/_add-to-collection-modal.scss
+.add-to-collection-modal { // Áp dụng vào .custom-modal
+    .create-new-collection-form {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px dashed var(--w-border-color-translucent);
+        h6 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: var(--w-headings-color);
+        }
+    }
+    .btn-link-action {
+        background: none;
+        border: none;
+        color: var(--w-primary);
+        font-size: 0.85rem;
+        padding: 0.25rem 0;
+        cursor: pointer;
+        text-decoration: none;
+        &:hover { text-decoration: underline; }
+    }
+}

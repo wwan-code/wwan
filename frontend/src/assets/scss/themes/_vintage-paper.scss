@@ -1,0 +1,111 @@
+// src/assets/scss/themes/_vintage-paper.scss
+:root.custom-theme-theme-vintage-paper {
+  // Màu sắc cơ bản - Giấy cũ, mực sepia
+  --w-body-bg: #f5f5dc; // Màu giấy Be (Beige)
+  --w-body-bg-rgb: 245, 245, 220;
+  --w-body-color: #5D4037; // Màu nâu đậm của mực
+  --w-body-color-rgb: 93, 64, 55;
+  --w-card-bg: #FAF0E6;   // Màu giấy Linen
+  --w-secondary-bg: #EFEBE9; // Nâu xám nhạt
+  --w-secondary-color: #5D4037;
+  --w-paper-bg: #FFF8DC;    // Cornsilk
+  --w-paper-bg-rgb: 255, 248, 220;
+
+  --w-border-color: #D7CCC8; // Viền màu nâu nhạt
+  --w-border-color-translucent: rgba(189, 180, 170, 0.5);
+  --w-border-radius: 0.2rem; // Ít bo góc
+  --w-border-radius-sm: 0.1rem;
+  --w-border-radius-lg: 0.3rem;
+
+  // Màu chủ đạo - Nâu Sepia
+  --w-primary: #795548; // Nâu
+  --w-primary-rgb: 121, 85, 72;
+  --w-primary-dark: #5D4037;
+  --w-primary-light: #A1887F;
+  --w-primary-text-emphasis: #FFFFFF;
+  --w-primary-bg-subtle: #D7CCC8;
+  --w-primary-border-subtle: #BCAAA4;
+
+  // Màu phụ trợ - Xanh rêu cổ điển
+  --w-secondary: #8FBC8F; // DarkSeaGreen
+  --w-secondary-rgb: 143, 188, 143;
+  --w-secondary-text-emphasis: #2F4F4F;
+  --w-secondary-bg-subtle: #E0F2F1;
+  --w-secondary-border-subtle: #B2DFDB;
+
+  --w-emphasis-color: #2F4F4F;
+  --w-emphasis-color-rgb: 47, 79, 79;
+  --w-emphasis-bg: #E0F2F1;
+  --w-emphasis-bg-rgb: 224, 242, 241;
+
+  // Màu nâu rất
+  --w-tertiary: #4E342E; // Nâu rất
+  --w-tertiary-rgb: 78, 52, 46;
+  --w-tertiary-text-emphasis: #FFFFFF;
+  --w-tertiary-bg-subtle: #D7CCC8;
+  --w-tertiary-border-subtle: #BCAAA4;
+
+  --w-tertiary-color: #2F4F4F;
+  --w-tertiary-color-rgb: 47, 79, 79;
+  --w-tertiary-bg: #E0F2F1;
+  --w-tertiary-bg-rgb: 224, 242, 241;
+
+  // Các màu khác
+  --w-success: #A5D6A7; // Xanh lá nhạt
+  --w-info: #90CAF9;    // Xanh dương nhạt
+  --w-warning: #FFE082; // Vàng nhạt
+  --w-danger: #EF9A9A;   // Đỏ nhạt
+
+  // Header & Footer
+  --w-header-bg: #A1887F; // Nâu nhạt hơn primary
+  --w-header-text-color: var(--w-body-bg);
+  --w-footer-bg: #4E342E; // Nâu rất đậm
+  --w-footer-text-color: #D7CCC8;
+
+  // Link
+  --w-link-color: #8D6E63; // Nâu gỗ cho link
+  --w-link-hover-color: var(--w-primary-dark);
+  --w-link-decoration: underline;
+  --w-link-hover-decoration: underline;
+
+  // Buttons
+  --w-btn-primary-bg: var(--w-primary);
+  --w-btn-primary-border-color: var(--w-primary-dark);
+  --w-btn-primary-hover-bg: var(--w-primary-dark);
+  --w-btn-primary-hover-border-color: #4E342E;
+  --w-btn-primary-text-color: var(--w-primary-text-emphasis);
+  --w-btn-font-family: 'Merriweather', serif; // Font có chân (serif)
+  --w-btn-border-radius: 2px; // Ít bo góc cho nút
+
+  // Box shadows - Bóng mờ nhẹ, tự nhiên
+  --w-box-shadow: 0 2px 5px rgba(93, 64, 55, .15);
+  --w-box-shadow-sm: 0 1px 2px rgba(93, 64, 55, .1);
+  --w-box-shadow-lg: 0 4px 10px rgba(93, 64, 55, .2);
+
+  // Font chữ
+  --w-font-sans-serif: 'Merriweather', Georgia, serif; // Font có chân
+  --w-body-font-family: var(--w-font-sans-serif);
+  --w-headings-font-family: 'Playfair Display', serif; // Font tiêu đề cổ điển (cần import)
+  --w-headings-font-weight: 700;
+
+  body & { // Hoặc html&
+    background-image: url('/assets/images/theme_backgrounds/old_paper_texture.jpg'); // Họa tiết giấy cũ
+    background-repeat: repeat;
+    background-attachment: fixed;
+  }
+
+  .card, .modal-content, .dropdown-menu {
+    border: 1px solid var(--w-border-color-translucent);
+    // box-shadow: inset 0 0 5px rgba(0,0,0,0.05); // Hiệu ứng lõm nhẹ
+  }
+
+  .section-title h3 {
+    font-family: var(--w-headings-font-family);
+    color: var(--w-primary-dark);
+    // border-bottom: 1px dashed var(--w-border-color);
+    // padding-bottom: 0.5rem;
+  }
+}
+
+// Nếu dùng Google Fonts:
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:wght@700&display=swap');

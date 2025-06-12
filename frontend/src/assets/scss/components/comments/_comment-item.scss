@@ -1,0 +1,269 @@
+// frontend/src/assets/scss/components/comments/_comment-item.scss
+
+.comment-item {
+    display: flex;
+    gap: 0.75rem; // Khoảng cách giữa avatar và nội dung
+    padding: 1rem 0;
+    // border-bottom: 1px solid var(--w-border-color-translucent);
+    position: relative; // Cho các badge vị trí tuyệt đối nếu cần
+
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    &__avatar {
+        flex-shrink: 0;
+
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--w-border-color-translucent);
+            transition: transform 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__main {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 0.25rem;
+    }
+
+    &__author-name {
+        font-weight: 600;
+        color: var(--w-heading-color);
+        text-decoration: none;
+        font-size: 0.95rem;
+
+        &:hover {
+            color: var(--w-primary);
+            text-decoration: underline;
+        }
+    }
+
+    .user-role-badge {
+        // Style cho badge role (admin, editor)
+        font-size: 0.7rem;
+        padding: 0.2em 0.5em;
+        font-weight: 500;
+
+        &.user-role--user {
+            background-color: var(--w-success-bg-subtle);
+            color: var(--w-success-text-emphasis);
+        }
+
+        &.user-role--admin {
+            background-color: var(--w-danger-bg-subtle);
+            color: var(--w-danger-text-emphasis);
+        }
+
+        &.user-role--editor {
+            background-color: var(--w-info-bg-subtle);
+            color: var(--w-info-text-emphasis);
+        }
+    }
+
+
+    &__timestamp {
+        font-size: 0.8rem;
+        color: var(--w-body-secondary-color);
+    }
+
+    &__content {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--w-body-color);
+        margin-bottom: 0.5rem;
+        white-space: pre-wrap; // Giữ lại các xuống dòng
+        word-break: break-word;
+
+        p {
+            margin-bottom: 0.5rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &.comment-content--spoiler {
+            cursor: pointer;
+            border: 1px dashed var(--w-warning-border-subtle);
+            padding: 0.5rem;
+            border-radius: var(--w-border-radius-sm);
+            background-color: var(--w-warning-bg-subtle);
+            color: var(--w-warning-text-emphasis);
+
+            &:hover {
+                border-color: var(--w-warning);
+            }
+
+            .spoiler-text-placeholder {
+                font-style: italic;
+                display: block;
+            }
+
+            p {
+                display: none;
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem; // Khoảng cách giữa các nút action
+        margin-top: 0.25rem;
+
+        .action-btn {
+            font-size: 0.85rem;
+            color: var(--w-secondary-color);
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            background: none;
+            border: none;
+
+            &:hover,
+            &:focus {
+                color: var(--w-primary);
+            }
+
+            &.liked i,
+            &.liked .like-count {
+                color: var(--w-danger) !important; // Màu đỏ cho nút like đã active
+            }
+
+            .like-count {
+                font-size: 0.8em;
+                font-weight: 500;
+            }
+
+            .spinner-border-sm {
+                width: 0.8rem;
+                height: 0.8rem;
+            }
+        }
+
+        .toggle-replies-btn {
+            font-weight: 500;
+            color: var(--w-primary);
+            i {
+                transition: transform 0.2s ease-in-out;
+            }
+
+            &[aria-expanded="true"] i.fa-chevron-down {
+                transform: rotate(180deg);
+            }
+            &:hover {
+                background-color: transparent;
+                text-decoration: underline;
+            }
+        }
+
+        .more-actions-btn {
+            // Nút ba chấm
+            color: var(--w-secondary-color);
+
+            &:hover,
+            &.show {
+                // &.show là khi dropdown mở
+                color: var(--w-primary);
+                background-color: var(--w-primary-bg-subtle);
+            }
+
+            &::after {
+                display: none;
+            }
+
+            // Bỏ mũi tên của Dropdown.Toggle
+        }
+
+        .dropdown-menu {
+            // Style cho dropdown menu
+            font-size: 0.9rem;
+            box-shadow: var(--w-dropdown-box-shadow, 0 0.5rem 1rem rgba(0, 0, 0, 0.15));
+            border-color: var(--w-dropdown-border-color, var(--w-border-color-translucent));
+
+            .dropdown-item {
+                padding: 0.35rem 1rem;
+
+                i {
+                    width: 18px; // Căn chỉnh icon
+                    text-align: center;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+
+    &__reply-form {
+    }
+
+    &--reply {
+        border-left: 2px solid var(--w-border-color);
+        padding-left: 1rem; // Khoảng cách sau đường kẻ
+        margin-left: 0.5rem; // Khoảng cách của đường kẻ với comment cha
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+
+        .comment-item__avatar img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    &--hidden {
+        opacity: 0.6;
+        font-style: italic;
+        background-color: var(--w-secondary-bg-subtle);
+        padding: 0.5rem;
+        border-radius: var(--w-border-radius);
+
+        .comment-item__content p {
+            color: var(--w-secondary-color);
+        }
+
+        .comment-item__actions {
+            display: none; // Ẩn actions cho comment bị ẩn
+        }
+    }
+}
+
+// Animation khi comment mới xuất hiện
+@keyframes newCommentAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.comment-item.newly-added {
+    animation: newCommentAppear 0.5s ease-out;
+}
+
+.reply-collapse.collapse {
+    transition: height 0.3s ease-in-out;
+}
+
+.reply-collapse.collapsing {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+}

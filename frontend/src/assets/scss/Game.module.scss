@@ -1,0 +1,132 @@
+.grid {
+    position: absolute;
+    bottom: 2%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.gameContainer {
+    position: relative;
+    width: 400px; // Chiều rộng cố định
+    height: 600px; // Chiều cao cố định
+    background: linear-gradient(180deg, #2c3e50, #34495e);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin: 100px auto;
+}
+
+.timer {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #f1c40f;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.player {
+    position: absolute;
+    bottom: 2%;
+    width: 40px;
+    height: 40px;
+    background: #3498db;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
+    transition: left 0.2s ease-in-out;
+    transform: translateX(-50%); // Giúp player nằm chính giữa ô
+}
+
+
+.obstacle {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #e74c3c;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.8);
+    transform: translateX(-50%);
+    animation: animate__fadeIn .5s none;
+}
+
+@keyframes animate__fadeIn {
+    0% {
+        scale: 0.5;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+.gameOverScreen,
+.winScreen {
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    font-size: 22px;
+}
+
+.retryButton {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.retryButton:hover {
+    background: #27ae60;
+}
+
+.warning {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: red;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
+    from {
+        opacity: 0.8;
+    }
+
+    to {
+        opacity: 0.2;
+    }
+}

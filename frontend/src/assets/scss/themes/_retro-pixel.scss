@@ -1,0 +1,96 @@
+// src/assets/scss/themes/_retro-pixel.scss
+:root.custom-theme-theme-retro-pixel {
+  // Màu sắc cơ bản - Phong cách 8-bit/16-bit
+  --w-body-bg: #2A2A3E; // Màu nền tối, hơi tím than
+  --w-body-color: #E0E0E0; // Chữ màu sáng
+  --w-card-bg: #3A3A50;   // Nền card tối hơn
+  --w-secondary-bg: #4A4A64;
+  --w-secondary-color: #E0E0E0;
+  --w-paper-bg: #303046; // Nền cho dropdown, modal
+
+  --w-border-color: #5A5A78;
+  --w-border-color-translucent: rgba(90, 90, 120, 0.5);
+  --w-border-radius: 0.2rem; // Bo góc ít hơn, vuông vắn hơn
+  --w-border-radius-sm: 0.1rem;
+  --w-border-radius-lg: 0.3rem;
+
+  // Màu chủ đạo - Xanh Cyan Pixel
+  --w-primary: #00FFFF; // Cyan sáng
+  --w-primary-rgb: 0, 255, 255;
+  --w-primary-dark: #00D1D1;
+  --w-primary-light: #80FFFF;
+  --w-primary-text-emphasis: #1A1A2E; // Chữ rất tối trên nền primary sáng
+  --w-primary-bg-subtle: #1E3A4C;
+  --w-primary-border-subtle: #00A0A0;
+
+  // Màu phụ trợ - Hồng Magenta Pixel
+  --w-secondary: #FF00FF; // Magenta sáng
+  --w-secondary-rgb: 255, 0, 255;
+  --w-secondary-text-emphasis: #1A1A2E;
+  --w-secondary-bg-subtle: #4C1E4C;
+  --w-secondary-border-subtle: #A000A0;
+
+  // Các màu khác
+  --w-success: #00FF00; // Xanh lá pixel
+  --w-success-rgb: 0, 255, 0;
+  --w-info: #FFFF00;    // Vàng pixel
+  --w-info-rgb: 255, 255, 0;
+  --w-warning: #FFA500; // Cam pixel
+  --w-warning-rgb: 255, 165, 0;
+  --w-danger: #FF0000;   // Đỏ pixel
+  --w-danger-rgb: 255, 0, 0;
+
+  // Header & Footer
+  --w-header-bg: #1A1A2E; // Nền header tối
+  --w-header-text-color: var(--w-primary);
+  --w-footer-bg: #1A1A2E;
+  --w-footer-text-color: #A0A0B4;
+
+  // Link
+  --w-link-color: var(--w-primary);
+  --w-link-hover-color: var(--w-primary-light);
+  --w-link-decoration: none;
+  --w-link-hover-decoration: underline;
+  --w-link-hover-text-shadow: 0 0 5px rgba(var(--w-primary-rgb), 0.7); // Hiệu ứng shadow cho link hover
+
+  // Buttons
+  --w-btn-primary-bg: var(--w-primary);
+  --w-btn-primary-border-color: var(--w-primary-dark);
+  --w-btn-primary-hover-bg: var(--w-primary-light);
+  --w-btn-primary-hover-border-color: var(--w-primary);
+  --w-btn-primary-text-color: var(--w-primary-text-emphasis);
+  --w-btn-border-width: 2px; // Viền nút dày hơn
+  --w-btn-font-family: 'Press Start 2P', cursive;
+
+  // Box shadows - có thể dùng viền pixel thay vì shadow
+  --w-box-shadow: none;
+  --w-box-shadow-sm: none;
+  --w-box-shadow-lg: none;
+
+  // Font chữ (cần import font pixel)
+  --w-font-sans-serif: 'Press Start 2P', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --w-body-font-family: var(--w-font-sans-serif);
+  --w-headings-font-family: var(--w-font-sans-serif);
+  --w-body-font-size: 0.8rem;
+
+  // Component-specific overrides
+  .card, .modal-content, .dropdown-menu {
+    border-style: solid;
+    border-width: 2px; // Viền pixel
+    border-image-slice: 2;
+    border-image-width: 2;
+    border-image-repeat: stretch;
+    border-image-source: url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="6" height="6"><rect fill="rgb(90,90,120)" x="0" y="0" width="6" height="6" /><rect fill="rgb(42,42,62)" x="2" y="2" width="2" height="2" /></svg>');
+    image-rendering: pixelated; // Đảm bảo các đường viền pixel sắc nét
+  }
+
+  .section-title h3 {
+    color: var(--w-secondary);
+    text-shadow: 2px 2px var(--w-body-bg), 4px 4px var(--w-primary-dark);
+  }
+  // Thêm một filter pixelate nhẹ cho toàn bộ trang (tùy chọn, có thể ảnh hưởng hiệu năng)
+  body & { filter: url(#pixelate); } // Cần định nghĩa SVG filter
+}
+
+// Nếu dùng font Google Fonts "Press Start 2P":
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');

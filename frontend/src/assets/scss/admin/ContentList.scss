@@ -1,0 +1,192 @@
+// src/assets/scss/admin/ContentList.scss (File SCSS dùng chung cho MovieList, ComicList)
+// Hoặc src/assets/scss/admin/ComicManagement.scss nếu muốn tách riêng
+
+.admin-content-list-page { // Class chung cho các trang danh sách
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--w-border-color);
+
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--w-emphasis-color);
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            .icon-before { margin-right: 0.5em; }
+        }
+    }
+
+    .controls-bar {
+        display: flex; // Cho phép các item nằm trên cùng hàng
+        justify-content: space-between; // Đẩy search và các nút khác ra xa nhau
+        align-items: center;
+        margin-bottom: 1.5rem;
+        .search-input {
+            max-width: 400px;
+            border-radius: var(--w-border-radius);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            &:focus {
+                border-color: var(--w-primary);
+                box-shadow: 0 0 0 0.2rem rgba(var(--w-primary-rgb), 0.25);
+            }
+        }
+    }
+
+    .loading-spinner-container, .error-alert, .alert-info-custom {
+        padding: 2rem;
+        text-align: center;
+        // ... (style như đã làm cho ComicManagement cũ)
+    }
+
+    .card-grid-container { // Class cho container của các card
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+        @media (min-width: 576px) {
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        }
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
+        @media (min-width: 992px) {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+        @media (min-width: 1200px) {
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        }
+        @media (min-width: 1400px) { // xxl
+             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); // Khoảng 5-6 card/row
+        }
+    }
+
+    .col-custom-card { // Bỏ class này nếu dùng grid trực tiếp
+        // CSS cho từng card item nếu không dùng grid trực tiếp trên .row-custom
+    }
+
+    .admin-content-card { // Class chung cho MovieCard, ComicCard
+        background-color: var(--w-paper-bg);
+        border: 1px solid var(--w-border-color-translucent);
+        border-radius: var(--w-border-radius-lg);
+        box-shadow: var(--w-box-shadow-sm);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 100%;
+
+        .card-image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 140%;
+
+            .card-img-top {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                border-top-left-radius: var(--w-border-radius-lg);
+                border-top-right-radius: var(--w-border-radius-lg);
+                object-fit: cover; // Đảm bảo ảnh che phủ
+            }
+
+            .card-overlay-info {
+                position: absolute;
+                top: 0.5rem;
+                left: 0;
+                right: 0;
+                padding: 0 0.5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                z-index: 2;
+                pointer-events: none; // Để click vẫn vào link ảnh
+                .badge {
+                    font-size: 0.65rem; // Nhỏ hơn
+                    padding: 0.3em 0.6em;
+                    font-weight: 600;
+                }
+            }
+
+            .admin-card-actions { // Nút dropdown 3 chấm
+                position: absolute;
+                top: 0.3rem;
+                right: 0.3rem;
+                z-index: 3;
+                .btn-icon { // Style cho nút 3 chấm
+                    background-color: rgba(var(--w-black-rgb), 0.4); // Nền tối hơn cho dễ thấy
+                    color: var(--w-white);
+                    width: 28px; height: 28px; line-height: 28px; font-size: 0.8rem;
+                    &:hover { background-color: rgba(var(--w-black-rgb), 0.6); }
+                }
+                .dropdown-menu {
+                    font-size: 0.875rem;
+                    .dropdown-item i {
+                        width: 1.5em; // Căn chỉnh icon
+                    }
+                }
+            }
+        }
+
+        .card-content-body {
+            padding: 0.75rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; // Đẩy meta info xuống dưới
+
+            .card-title-main {
+                font-size: 0.9rem; // Nhỏ hơn một chút
+                font-weight: 600; // Đậm hơn
+                margin-bottom: 0.2rem;
+                line-height: 1.3;
+                // Giới hạn 2 dòng
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                min-height: calc(0.9rem * 1.3 * 2);
+                a {
+                    color: var(--w-emphasis-color);
+                    text-decoration: none;
+                    &:hover { color: var(--w-primary); }
+                }
+            }
+            .card-subtitle-text {
+                font-size: 0.75rem;
+                margin-bottom: 0.3rem;
+                line-height: 1.3;
+                // Giới hạn 1 dòng
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .card-meta-info {
+                font-size: 0.7rem; // Nhỏ hơn nữa
+                color: var(--w-secondary-color);
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.2rem 0.5rem; // Giảm gap
+                margin-top: auto; // Đẩy xuống dưới cùng của card-body
+                i { margin-right: 0.2em; }
+            }
+        }
+    }
+    // Style cho pagination (tương tự Leaderboard)
+    .pagination-controls-wrapper {
+         display: flex;
+         justify-content: center; // Căn giữa pagination
+    }
+    .pagination-nav { /* ... (style như LeaderboardPage.scss) ... */ }
+}

@@ -1,0 +1,59 @@
+// src/assets/scss/admin/ComicPageManagement.scss
+.comic-page-management {
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--w-border-color);
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--w-emphasis-color);
+            margin-bottom: 0;
+
+            .comic-title-highlight {
+                color: var(--w-primary);
+                font-weight: 500;
+            }
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+
+            .icon-before {
+                margin-right: 0.5em;
+            }
+        }
+    }
+
+    .pages-list-dnd, .new-page-previews-list {
+        min-height: 200px;
+        max-height: 60vh;
+        overflow-y: auto;
+        background-color: var(--w-tertiary-bg);
+    }
+
+    .draggable-page-preview-item.existing-page-item {
+        // Có thể thêm style riêng nếu cần
+        margin-bottom: 0.75rem;
+        .page-preview-index {
+            font-size: 0.8rem;
+        }
+        .page-preview-img {
+            width: 80px;
+            max-height: 110px;
+        }
+        .page-preview-name {
+            font-size: 0.85rem;
+        }
+    }
+    .btn-icon-text {
+        span.d-none.d-md-inline {
+            margin-left: 0.35rem;
+        }
+    }
+}

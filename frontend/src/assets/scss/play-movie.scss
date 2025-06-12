@@ -1,0 +1,163 @@
+.main-content.play-page {
+    margin-top: calc(var(--w-header-height) + 24px);
+}
+
+.page-single.video-play {
+    margin: 0 auto;
+}
+
+.video-play:not(.video-play--mobile) {
+    min-width: 512px;
+
+    .video-play__player {
+        margin-bottom: 16px;
+    }
+
+    &:not(.video-play--large) .video-play__player {
+        min-width: 480px;
+    }
+
+    .video-play__meta {
+        margin-bottom: 16px;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .video-play__sidebar {
+        display: grid;
+        grid-template-rows: auto auto auto 1fr;
+        row-gap: 18px;
+    }
+}
+@media (min-width: 992px) {
+    .video-play {
+        &:not(.video-play--mobile) {
+            width: fit-content;
+            display: grid;
+            grid-template-columns: min-content auto;
+            grid-template-rows: auto auto 1fr;
+            column-gap: 16px;
+
+            &.video-play--large {
+                .video-play__player {
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+                    grid-row-start: 1;
+                    grid-row-end: 2;
+                }
+        
+                .video-play__sidebar {
+                    grid-row-start: 2;
+                    grid-row-end: 4;
+                }
+            }
+            &:not(.video-play--large) {
+                .video-play__player,
+                .video-play__meta,
+                .video-play__comments {
+                    max-width: 674px;
+                }
+    
+                .video-play__meta,
+                .video-play__comments {
+                    width: calc((100vh - 64px - 24px - 82px) / .5625);
+                    min-width: 480px;
+                }
+            }
+            &:not(.video-play--large) {
+                .video-play__sidebar {
+                    width: 272px;
+                }
+            }
+            .video-play__sidebar {
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 4;
+            }
+    
+            .video-play__comments {
+                grid-column-start: 1;
+                grid-column-end: 2;
+            }
+        }
+    }    
+}
+@media(min-width: 1080px) {
+    .video-play {
+        &:not(.video-play--mobile) {
+            column-gap: 12px;
+
+            &.video-play--large {
+                .video-play__player {
+                    max-width: calc(100vw - 64px);
+                }
+            }
+    
+            &:not(.video-play--large) {
+                .video-play__player,
+                .video-play__meta,
+                .video-play__comments {
+                    max-width: 768px;
+                }
+            }
+
+            &:not(.video-play--large) {
+                .video-play__sidebar {
+                    width: 270px;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1200px) {
+    .video-play {
+        &:not(.video-play--mobile) {
+            &.video-play--large {
+                .video-play__player {
+                    max-width: calc(100vw - 64px);
+                }
+            }
+    
+            &:not(.video-play--large) {
+                .video-play__player,
+                .video-play__meta,
+                .video-play__comments {
+                    max-width: 840px;
+                }
+            }
+
+            &:not(.video-play--large) {
+                .video-play__sidebar {
+                    width: 300px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .video-play {
+        &:not(.video-play--mobile) {
+            &.video-play--large {
+                .video-play__player {
+                    max-width: calc(100vw - 64px);
+                }
+            }
+    
+            &:not(.video-play--large) {
+                .video-play__player,
+                .video-play__meta,
+                .video-play__comments {
+                    max-width: 1024px;
+                }
+            }
+
+            &:not(.video-play--large) {
+                .video-play__sidebar {
+                    width: 320px;
+                }
+            }
+        }
+    }
+}

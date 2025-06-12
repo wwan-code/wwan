@@ -1,0 +1,431 @@
+// src/assets/scss/_variables.scss
+
+:root,
+[data-ww-theme="light"] {
+    --w-blue: #0d6efd;
+    --w-indigo: #6610f2;
+    --w-purple: #6f42c1;
+    --w-pink: #d63384;
+    --w-red: #dc3545;
+    --w-orange: #fd7e14;
+    --w-yellow: #ffc107;
+    --w-green: #198754;
+    --w-teal: #20c997;
+    --w-cyan: #0dcaf0;
+    --w-black: #000;
+    --w-white: #fff;
+    --w-gray: #6c757d;
+    --w-gray-dark: #343a40;
+    --w-gray-100: #f8f9fa;
+    --w-gray-200: #e9ecef;
+    --w-gray-300: #dee2e6;
+    --w-gray-400: #ced4da;
+    --w-gray-500: #adb5bd;
+    --w-gray-600: #6c757d;
+    --w-gray-700: #495057;
+    --w-gray-800: #343a40;
+    --w-gray-900: #212529;
+    --w-primary: #0d9494;
+    --w-secondary: #6c757d;
+    --w-success: #198754;
+    --w-info: #0dcaf0;
+    --w-warning: #ffc107;
+    --w-danger: #dc3545;
+    --w-light: #f8f9fa;
+    --w-dark: #212529;
+    --w-primary-rgb: 13, 147, 148;
+    --w-secondary-rgb: 108, 117, 125;
+    --w-success-rgb: 25, 135, 84;
+    --w-info-rgb: 13, 202, 240;
+    --w-warning-rgb: 255, 193, 7;
+    --w-danger-rgb: 220, 53, 69;
+    --w-light-rgb: 248, 249, 250;
+    --w-dark-rgb: 33, 37, 41;
+    --w-primary-text-emphasis: #005252;
+    --w-primary-text-emphasis-rgb: 0, 82, 82;
+    --w-secondary-text-emphasis: #2b2f32;
+    --w-success-text-emphasis: #0a3622;
+    --w-info-text-emphasis: #055160;
+    --w-warning-text-emphasis: #664d03;
+    --w-danger-text-emphasis: #58151c;
+    --w-light-text-emphasis: #495057;
+    --w-dark-text-emphasis: #495057;
+    --w-primary-bg-subtle: #92e2e2;
+    --w-primary-bg-subtle-rgb: 146, 226, 226;
+    --w-secondary-bg-subtle: #e2e3e5;
+    --w-success-bg-subtle: #d1e7dd;
+    --w-info-bg-subtle: #cff4fc;
+    --w-warning-bg-subtle: #fff3cd;
+    --w-danger-bg-subtle: #f8d7da;
+    --w-light-bg-subtle: #fcfcfd;
+    --w-dark-bg-subtle: #ced4da;
+    --w-primary-border-subtle: #75dddd;
+    --w-primary-border-subtle-rgb: 117, 221, 221;
+    --w-secondary-border-subtle: #c4c8cb;
+    --w-success-border-subtle: #a3cfbb;
+    --w-info-border-subtle: #9eeaf9;
+    --w-warning-border-subtle: #ffe69c;
+    --w-danger-border-subtle: #f1aeb5;
+    --w-light-border-subtle: #e9ecef;
+    --w-dark-border-subtle: #adb5bd;
+    --w-white-rgb: 255, 255, 255;
+    --w-black-rgb: 0, 0, 0;
+    --w-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --w-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+    --w-gradient: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.15),
+            rgba(255, 255, 255, 0));
+    --w-body-font-family: var(--w-font-sans-serif);
+    --w-body-font-size: 1rem;
+    --w-body-font-weight: 400;
+    --w-body-line-height: 1.5;
+    --w-body-color: #1c1e21;
+    --w-body-color-rgb: 28, 30, 33;
+    --w-body-bg: #f2f4f7;
+    --w-body-bg-rgb: 242, 244, 247;
+    --w-body-tertiary-bg: #f8f9fa;
+    --w-body-tertiary-bg-rgb: 248, 249, 250;
+    --w-body-quaternary-bg: #e9ecef;
+    --w-body-quaternary-bg-rgb: 233, 236, 239;
+    --w-emphasis-color: #000;
+    --w-emphasis-color-rgb: 0, 0, 0;
+    --w-emphasis-bg: rgba(255, 255, 255, 0.75);
+    --w-emphasis-bg-rgb: 255, 255, 255;
+    --w-secondary-color: rgba(33, 37, 41, 0.75);
+    --w-secondary-color-rgb: 33, 37, 41;
+    --w-secondary-bg: #e9ecef;
+    --w-secondary-bg-rgb: 233, 236, 239;
+    --w-tertiary-color: rgba(33, 37, 41, 0.5);
+    --w-tertiary-color-rgb: 33, 37, 41;
+    --w-tertiary-bg: #f8f9fa;
+    --w-tertiary-bg-rgb: 248, 249, 250;
+    --w-heading-color: inherit;
+    --w-link-color: var(--w-primary-text-emphasis);
+    --w-link-hover-color: var(--w-primary);
+    --w-link-color-rgb: var(--w-primary-text-emphasis-rgb);
+    --w-link-hover-color-rgb: var(--w-primary-rgb);
+    --w-code-color: #d63384;
+    --w-highlight-color: #212529;
+    --w-highlight-bg: var(--w-primary);
+    --w-highlight-bg-rgb: var(--w-primary-rgb);
+    --w-border-width: 1px;
+    --w-border-style: solid;
+    --w-border-color: #e4e6e8;
+    --w-border-color-translucent: rgba(0, 0, 0, 0.0875);
+    --w-border-radius: 0.375rem;
+    --w-border-radius-sm: 0.25rem;
+    --w-border-radius-md: 0.375rem;
+    --w-border-radius-lg: 0.5rem;
+    --w-border-radius-xl: 1rem;
+    --w-border-radius-xxl: 2rem;
+    --w-border-radius-2xl: var(--w-border-radius-xxl);
+    --w-border-radius-pill: 50rem;
+    --w-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --w-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --w-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    --w-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    --w-focus-ring-width: 0.25rem;
+    --w-focus-ring-opacity: 0.25;
+    --w-focus-ring-color: rgba(13, 110, 253, 0.25);
+    --w-form-valid-color: #198754;
+    --w-form-valid-border-color: #198754;
+    --w-form-invalid-color: #dc3545;
+    --w-form-invalid-border-color: #dc3545;
+    --w-bg-label-tint-amount: 84%;
+    --w-border-subtle-amount: 70%;
+    --w-base-color: #2b2b2b;
+    --w-base-color-rgb: 43, 43, 43;
+    --w-paper-bg: #fff;
+    --w-paper-bg-rgb: 255, 255, 255;
+    --w-skeleton-bg: #e0e0e0;
+    --w-skeleton-bg-rgb: 224, 224, 224;
+    --w-skeleton-element-bg: #f0f0f0;
+}
+
+[data-ww-theme=dark] {
+    color-scheme: dark;
+    --w-body-color: #f2f4f7;
+    --w-body-color-rgb: 242, 244, 247;
+    --w-body-bg: rgb(27, 27, 29);
+    --w-body-bg-rgb: 27, 27, 29;
+    --w-body-tertiary-bg: #2b3035;
+    --w-body-tertiary-bg-rgb: 43, 48, 53;
+    --w-body-quaternary-bg: #222222;
+    --w-body-quaternary-bg-rgb: 34, 34, 34;
+    --w-emphasis-color: #fff;
+    --w-emphasis-color-rgb: 255, 255, 255;
+    --w-emphasis-bg: rgba(0, 0, 0, 0.75);
+    --w-emphasis-bg-rgb: 0, 0, 0;
+    --w-secondary-color: rgba(222, 226, 230, 0.75);
+    --w-secondary-color-rgb: 222, 226, 230;
+    --w-secondary-bg: rgb(32, 33, 34);
+    --w-secondary-bg-rgb: 32, 33, 34;
+    --w-tertiary-color: rgba(222, 226, 230, 0.5);
+    --w-tertiary-color-rgb: 222, 226, 230;
+    --w-tertiary-bg: #2b3035;
+    --w-tertiary-bg-rgb: 43, 48, 53;
+    --w-primary-text-emphasis: #92e2e2;
+    --w-primary-text-emphasis-rgb: 146, 226, 226;
+    --w-secondary-text-emphasis: #a7acb1;
+    --w-success-text-emphasis: #75b798;
+    --w-info-text-emphasis: #6edff6;
+    --w-warning-text-emphasis: #ffda6a;
+    --w-danger-text-emphasis: #ea868f;
+    --w-light-text-emphasis: #f8f9fa;
+    --w-dark-text-emphasis: #dee2e6;
+    --w-primary-bg-subtle: #004040;
+    --w-primary-bg-subtle-rgb: 0, 64, 64;
+    --w-secondary-bg-subtle: #161719;
+    --w-success-bg-subtle: #051b11;
+    --w-info-bg-subtle: #032830;
+    --w-warning-bg-subtle: #332701;
+    --w-danger-bg-subtle: #2c0b0e;
+    --w-light-bg-subtle: #343a40;
+    --w-dark-bg-subtle: #1a1d20;
+    --w-primary-border-subtle: #007373;
+    --w-primary-border-subtle-rgb: 0, 115, 115;
+    --w-secondary-border-subtle: #41464b;
+    --w-success-border-subtle: #0f5132;
+    --w-info-border-subtle: #087990;
+    --w-warning-border-subtle: #997404;
+    --w-danger-border-subtle: #842029;
+    --w-light-border-subtle: #495057;
+    --w-dark-border-subtle: #343a40;
+    --w-heading-color: inherit;
+    --w-link-color: var(--w-primary-text-emphasis);
+    --w-link-hover-color: var(--w-primary);
+    --w-link-color-rgb: var(--w-primary-text-emphasis-rgb);
+    --w-link-hover-color-rgb: var(--w-primary-rgb);
+    --w-code-color: #e685b5;
+    --w-highlight-color: #dee2e6;
+    --w-highlight-bg: var(--w-primary);
+    --w-highlight-bg-rgb: var(--w-primary-rgb);
+    --w-border-color: #343a40;
+    --w-border-color-translucent: rgba(255, 255, 255, 0.215);
+    --w-form-valid-color: #75b798;
+    --w-form-valid-border-color: #75b798;
+    --w-form-invalid-color: #ea868f;
+    --w-form-invalid-border-color: #ea868f;
+    --w-bg-label-tint-amount: 84%;
+    --w-border-subtle-amount: 76%;
+    --w-base-color: #e6e6f1;
+    --w-base-color-rgb: 230, 230, 241;
+    --w-paper-bg: #0f0f0f;
+    --w-paper-bg-rgb: 16, 16, 16;
+    --w-skeleton-bg: #2b3035;
+    --w-skeleton-bg-rgb: 43, 48, 53;
+    --w-skeleton-element-bg: #343a40;
+}
+
+:root,
+[data-ww-theme=light] {
+    --w-menu-bg: var(--w-paper-bg);
+    --w-menu-bg-rgb: var(--w-paper-bg-rgb);
+    --w-menu-color: #384551;
+    --w-menu-color-rgb: 56, 69, 81;
+    --w-menu-hover-bg: #f2f3f3;
+    --w-menu-hover-color: #384551;
+    --w-menu-sub-active-bg: var(--w-primary-bg-subtle);
+    --w-menu-sub-active-color: var(--w-primary);
+    --w-menu-active-color: var(--w-primary);
+    --w-menu-active-bg: var(--w-primary-bg-subtle);
+    --w-menu-active-toggle-bg: #edeef0;
+    --w-menu-horizontal-active-bg: var(--w-menu-bg);
+    --w-menu-box-shadow: 0 0.125rem 0.375rem 0 rgba(34, 48, 62, 0.08);
+    --w-menu-divider-color: var(--w-white);
+    --w-menu-width: 16.25rem;
+    --w-menu-collapsed-width: 5.25rem;
+    --w-menu-item-spacer: 0.125rem;
+    --w-menu-vertical-link-padding-y: 0.3125rem;
+    --w-menu-vertical-link-padding-x: 0.9375rem;
+    --w-menu-vertical-menu-link-padding-y: 0.3125rem;
+    --w-menu-vertical-menu-level-spacer: 0.65rem;
+    --w-menu-horizontal-menu-box-shadow: var(--w-box-shadow-lg);
+}
+
+[data-ww-theme=dark] {
+    --w-menu-bg: #222222;
+    --w-menu-bg-rgb: var(--w-paper-bg-rgb);
+    --w-menu-color: #bfbfbf;
+    --w-menu-color-rgb: 191, 191, 191;
+    --w-menu-hover-bg: rgba(230, 230, 241, 0.06);
+    --w-menu-hover-color: #bfbfbf;
+    --w-menu-active-bg: var(--w-primary);
+    --w-menu-active-color: #fff;
+    --w-menu-active-toggle-bg: rgba(230, 230, 241, 0.08);
+    --w-menu-sub-active-bg: var(--w-primary);
+    --w-menu-sub-active-color: #fff;
+    --w-menu-box-shadow: 0 0.125rem 0.375rem 0 rgba(20, 20, 29, 0.2);
+    --w-menu-divider-color: transparent;
+    --w-menu-horizontal-active-bg: var(--w-menu-bg);
+}
+
+:root {
+    --prefix: w-;
+    --w-pure-black: #000;
+    --w-icon-size: 1.25rem;
+    --w-icon-size-xs: 1rem;
+    --w-icon-size-sm: 1.125rem;
+    --w-icon-size-md: 1.375rem;
+    --w-icon-size-lg: 1.5rem;
+    --w-icon-size-xl: 2rem;
+    --w-primary-contrast: var(--w-white);
+    --w-secondary-contrast: var(--w-white);
+    --w-success-contrast: var(--w-white);
+    --w-info-contrast: var(--w-white);
+    --w-warning-contrast: var(--w-white);
+    --w-danger-contrast: var(--w-white);
+    --w-light-contrast: var(--w-pure-black);
+    --w-dark-contrast: var(--w-white);
+    --w-gray-contrast: var(--w-white);
+    --w-breakpoint-xs: 0;
+    --w-breakpoint-sm: 576px;
+    --w-breakpoint-md: 768px;
+    --w-breakpoint-lg: 992px;
+    --w-breakpoint-xl: 1200px;
+    --w-breakpoint-xxl: 1400px;
+    --w-spacer: 1rem;
+    --w-spacer-xxs: calc(var(--w-spacer) * 0.25);
+    --w-spacer-xs: calc(var(--w-spacer) * 0.5);
+    --w-spacer-sm: calc(var(--w-spacer) * 0.75);
+    --w-spacer-md: var(--w-spacer);
+    --w-spacer-lg: calc(var(--w-spacer) * 1.5);
+    --w-spacer-xl: calc(var(--w-spacer) * 2);
+    --w-spacer-xxl: calc(var(--w-spacer) * 3);
+}
+
+//--------------------------------------------------------------------------
+// BIẾN DÀNH RIÊNG CHO TRANG ĐỌC TRUYỆN ẢNH (Comic Reader)
+//--------------------------------------------------------------------------
+:root, [data-ww-theme="light"] {
+    --w-comic-card-bg: var(--w-paper-bg);
+    --w-comic-card-border: var(--w-border-color-translucent);
+    --w-comic-card-shadow: var(--w-box-shadow-sm);
+    --w-comic-card-hover-shadow: var(--w-box-shadow);
+    --w-comic-title-color: var(--w-emphasis-color);
+    --w-comic-title-hover-color: var(--w-primary);
+    --w-comic-meta-color: var(--w-secondary-color);
+    --w-comic-icon-color: var(--w-gray-500);
+
+    // Comic Detail Page
+    --w-comic-detail-hero-height: 380px;
+    --w-comic-detail-hero-overlay-start: rgba(var(--w-body-bg-rgb), 0);
+    --w-comic-detail-hero-overlay-mid: rgba(var(--w-body-bg-rgb), 0.6);
+    --w-comic-detail-hero-overlay-end: var(--w-body-bg);
+    --w-comic-detail-content-margin-top: -200px; // Điều chỉnh để nội dung đè lên hero
+
+    // Comic Reader Page
+    --w-reader-bg: var(--w-gray-100);
+    --w-reader-text: var(--w-body-color);
+    --w-reader-controls-bg: rgba(var(--w-white-rgb), 0.95);
+    --w-reader-controls-text: var(--w-emphasis-color);
+    --w-reader-controls-border: var(--w-border-color);
+    --w-reader-placeholder-bg: var(--w-gray-200);
+    --w-reader-placeholder-text: var(--w-gray-600);
+    --w-reader-image-bg: var(--w-black); // Nền cho ảnh khi đang tải hoặc có alpha
+
+    --w-reader-controls-height: 55px;
+    --w-reader-controls-height-mobile: auto;
+    --w-reader-controls-min-height-mobile: 50px;
+    --w-reader-bottom-nav-height: 50px;
+    --w-reader-image-max-width-desktop: 800px;
+}
+
+[data-ww-theme="dark"] {
+    --w-comic-card-bg: var(--w-paper-bg); // Đã được định nghĩa cho dark theme
+    --w-comic-card-border: var(--w-border-color-translucent);
+    --w-comic-title-color: var(--w-emphasis-color);
+    --w-comic-title-hover-color: var(--w-primary); // Có thể cần làm sáng hơn
+    --w-comic-meta-color: var(--w-secondary-color);
+    --w-comic-icon-color: var(--w-gray-400);
+
+    // Comic Detail Page (Dark)
+    --w-comic-detail-hero-overlay-start: rgba(var(--w-body-bg-rgb), 0);
+    --w-comic-detail-hero-overlay-mid: rgba(var(--w-body-bg-rgb), 0.7);
+    --w-comic-detail-hero-overlay-end: var(--w-body-bg);
+
+    // Comic Reader Page (Dark)
+    --w-reader-bg: #0A0A0A;
+    --w-reader-text: var(--w-gray-300);
+    --w-reader-controls-bg: rgba(var(--w-black-rgb), 0.92);
+    --w-reader-controls-text: var(--w-gray-200);
+    --w-reader-controls-border: rgba(var(--w-white-rgb), 0.1);
+    --w-reader-placeholder-bg: #181818;
+    --w-reader-placeholder-text: var(--w-gray-500);
+    --w-reader-image-bg: var(--w-black);
+}
+
+:root {
+    --w-header-height: 74px;
+    --w-footer-height: 200px;
+    --w-reader-controls-height: 55px;
+    --w-reader-controls-height-mobile: 70px;
+    --w-reader-bottom-nav-height: 50px;
+    --w-reader-image-max-width-desktop: 800px;
+    --w-card-spacer-y: 1rem;
+    --w-card-spacer-x: 1rem;
+    --w-card-title-spacer-y: 0.5rem;
+    --w-card-title-color: ; // Trống nếu không có giá trị mặc định
+    --w-card-subtitle-color: ; // Trống nếu không có giá trị mặc định
+    --w-card-border-width: var(--w-border-width);
+    --w-card-border-color: var(--w-border-color-translucent);
+    --w-card-border-radius: var(--w-border-radius);
+    --w-card-box-shadow: 0 0.125rem 0.725rem rgba(var(--w-emphasis-color-rgb), 0.05);
+    --w-card-inner-border-radius: calc(var(--w-border-radius) - (var(--w-border-width)));
+    --w-card-cap-padding-y: 0.5rem;
+    --w-card-cap-padding-x: 1rem;
+    --w-card-cap-bg: rgba(var(--w-body-color-rgb), 0.03);
+    --w-card-cap-color: ; // Trống nếu không có giá trị mặc định
+    --w-card-height: ; // Trống nếu không có giá trị mặc định
+    --w-card-color: var(--w-body-color); // Sử dụng biến body color nếu không có màu card cụ thể
+    --w-card-bg: var(--w-paper-bg);
+    --w-card-img-overlay-padding: 1rem;
+    --w-card-group-margin: 0.75rem;
+    --w-modal-zindex: 1055;
+    --w-modal-width: 500px;
+    --w-modal-padding: 1rem; // Padding cho modal-body
+    --w-modal-margin: 0.5rem; // Margin cho modal-dialog khi không ở fullscreen
+    --w-modal-color: ; // Màu chữ mặc định của modal, thường là var(--w-body-color)
+    --w-modal-bg: var(--w-paper-bg);
+    --w-modal-border-color: var(--w-border-color-translucent);
+    --w-modal-border-width: var(--w-border-width);
+    --w-modal-border-radius: var(--w-border-radius-lg);
+    --w-modal-box-shadow: var(--w-box-shadow-sm);
+    --w-modal-inner-border-radius: calc(var(--w-border-radius-lg) - var(--w-border-width));
+    --w-modal-header-padding-x: 1rem;
+    --w-modal-header-padding-y: 1rem;
+    --w-modal-header-padding: var(--w-modal-header-padding-y) var(--w-modal-header-padding-x); // Kết hợp
+    --w-modal-header-border-color: var(--w-border-color);
+    --w-modal-header-border-width: var(--w-border-width);
+    --w-modal-title-line-height: 1.5;
+    --w-modal-footer-gap: 0.5rem;
+    --w-modal-footer-bg: ; // Thường là transparent hoặc màu của modal-content
+    --w-modal-footer-border-color: var(--w-border-color);
+    --w-modal-footer-border-width: var(--w-border-width);
+}
+
+:root {
+    --w-navbar-padding-x: 0;
+    --w-navbar-padding-y: 0.5rem;
+    --w-navbar-color: rgba(var(--w-emphasis-color-rgb), 0.65);
+    --w-navbar-hover-color: rgba(var(--w-emphasis-color-rgb), 0.8);
+    --w-navbar-disabled-color: rgba(var(--w-emphasis-color-rgb), 0.3);
+    --w-navbar-active-color: rgba(var(--w-emphasis-color-rgb), 1);
+    --w-navbar-brand-padding-y: 0.3125rem;
+    --w-navbar-brand-margin-end: 1rem;
+    --w-navbar-brand-font-size: 1.25rem;
+    --w-navbar-brand-color: rgba(var(--w-emphasis-color-rgb), 1);
+    --w-navbar-brand-hover-color: rgba(var(--w-emphasis-color-rgb), 1);
+    --w-navbar-nav-link-padding-x: 0.5rem;
+    --w-navbar-toggler-padding-y: 0.25rem;
+    --w-navbar-toggler-padding-x: 0.75rem;
+    --w-navbar-toggler-font-size: 1.25rem;
+    --w-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    --w-navbar-toggler-border-color: rgba(var(--w-emphasis-color-rgb), 0.15);
+    --w-navbar-toggler-border-radius: var(--w-border-radius);
+    --w-navbar-toggler-focus-width: 0.25rem;
+    --w-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+}

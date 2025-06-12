@@ -1,0 +1,218 @@
+// src/assets/scss/pages/_shop-page.scss
+@use "sass:color";
+.shop-page-container {
+    padding-top: calc(var(--w-header-height) + 24px);
+    padding-bottom: 2rem;
+}
+
+.shop-page-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--w-headings-color, var(--w-body-color));
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(var(--w-primary-rgb), 0.2);
+}
+
+.alert-message {
+    padding: 1rem 1.5rem;
+    border-radius: var(--w-border-radius-lg);
+    text-align: center;
+    font-size: 1.1rem;
+
+    &.alert-info {
+        background-color: var(--w-info-bg-subtle);
+        color: var(--w-info-text-emphasis);
+        border: 1px solid var(--w-info-border-subtle);
+    }
+}
+
+
+.shop-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.15rem;
+}
+.shop-item-card-wrapper {
+    display: flex;
+}
+
+.shop-item-card {
+    background-color: var(--w-card-bg);
+    border-radius: var(--w-border-radius-lg);
+    box-shadow: var(--w-box-shadow-sm);
+    transition: box-shadow 0.25s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    &:hover {
+        box-shadow: 0 0.5rem 1rem rgba(var(--w-body-color-rgb), 0.15);
+    }
+
+    &.item-unavailable {
+        opacity: 0.7;
+        filter: grayscale(50%);
+    }
+
+    &__top {
+        display: grid;
+        grid-template-columns: calc(3.5rem + 1.5vw) auto;
+    }
+    &__image-container {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        padding: 0.35rem;
+        overflow: hidden;
+    }
+    &__image-placeholder {
+        @extend .shop-item-card__image-container; // Kế thừa style
+        i {
+            font-size: 3.5rem;
+            color: var(--w-secondary-color);
+            opacity: 0.5;
+        }
+    }
+
+    &__image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; // Để ảnh không bị cắt xén hoặc méo
+    }
+
+    &__body {
+        padding: 0.35rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1; // Quan trọng để footer đẩy xuống dưới
+    }
+
+    &__title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--w-headings-color, var(--w-body-color));
+        margin-bottom: 0.5rem;
+        min-height: 2.8em; // Đủ cho 2 dòng title
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__description {
+        font-size: 0.875rem;
+        color: var(--w-secondary-text-emphasis, #6c757d);
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+        flex-grow: 1;
+        min-height: 3.9em;
+         display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        em {
+            display: block;
+            margin-top: 0.25rem;
+            font-size: 0.8rem;
+            color: var(--w-tertiary-color, #888);
+        }
+    }
+
+    &__bottom {
+        padding: 0.35rem;
+        border-top: 1px solid var(--w-border-color-translucent); // Đường kẻ nhẹ
+    }
+
+    &__meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        font-size: 0.9rem;
+
+        .item-price {
+            font-weight: bold;
+            color: var(--w-primary);
+        }
+        .item-stock {
+            color: var(--w-secondary-color);
+            font-size: 0.8rem;
+        }
+    }
+
+    // Nút tùy chỉnh (bạn có thể đã có class .btn, .btn--primary)
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border-radius: var(--w-border-radius);
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        border: 1px solid transparent;
+
+        &--full-width {
+            width: 100%;
+        }
+
+        &--primary {
+            background-color: var(--w-success);
+            border-color: var(--w-success);
+            color: var(--w-success-text-emphasis, #fff);
+
+            &:hover:not(:disabled) {
+                $hover-color: color.scale(color.adjust(#198754, $saturation: -5%), $lightness: -5%);
+                background-color: $hover-color;
+                border-color: $hover-color;
+            }
+            &:disabled {
+                opacity: 0.65;
+                cursor: not-allowed;
+                background-color: var(--w-secondary-bg-subtle, #e9ecef);
+                border-color: var(--w-secondary-border-subtle, #ced4da);
+                color: var(--w-secondary-color, #6c757d);
+            }
+        }
+        &--outline-primary {
+             background-color: transparent;
+             border-color: var(--w-primary);
+             color: var(--w-primary);
+             &:hover {
+                 background-color: var(--w-primary);
+                 color: var(--w-primary-text-emphasis);
+             }
+        }
+
+
+        .spinner--small {
+            width: 1em;
+            height: 1em;
+            border-width: .15em;
+        }
+    }
+}
+
+.shop-page__actions {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.spinner--small {
+  display: inline-block;
+  vertical-align: text-bottom;
+  border: .15em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border .75s linear infinite;
+  width: 1em;
+  height: 1em;
+}
+@keyframes spinner-border { to { transform: rotate(360deg); } }

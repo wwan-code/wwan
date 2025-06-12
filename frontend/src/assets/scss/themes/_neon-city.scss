@@ -1,0 +1,78 @@
+// src/assets/scss/themes/_neon-city.scss
+:root.custom-theme-theme-neon-city {
+  // Màu sắc cơ bản - Nền tối, màu neon nổi bật
+  --w-body-bg: #0d0221; // Xanh đen/tím than đậm
+  --w-body-color: #c0c0ff; // Chữ màu tím lavender nhạt
+  --w-card-bg: #1a0e3d;
+  --w-secondary-bg: #241653;
+  --w-secondary-color: #c0c0ff;
+  --w-paper-bg: #130A2F;
+
+  --w-border-color: #401F71; // Viền màu tím neon đậm
+  --w-border-color-translucent: rgba(64, 31, 113, 0.5);
+  --w-border-radius: 0.5rem;
+
+  // Màu chủ đạo - Hồng Neon
+  --w-primary: #F92C86;
+  --w-primary-rgb: 249, 44, 134;
+  --w-primary-dark: #D71B6E;
+  --w-primary-light: #FA5FA0;
+  --w-primary-text-emphasis: #FFFFFF;
+  --w-primary-bg-subtle: #4A1A3C;
+  --w-primary-border-subtle: #7C2C64;
+
+  // Màu phụ trợ - Xanh Cyan Neon
+  --w-secondary: #00E5FF;
+  --w-secondary-rgb: 0, 229, 255;
+  --w-secondary-text-emphasis: #0d0221; // Chữ tối trên nền cyan sáng
+  --w-secondary-bg-subtle: #0D3C4A;
+  --w-secondary-border-subtle: #008C9E;
+
+  // Các màu khác
+  --w-success: #00FFAB; // Xanh lá neon
+  --w-info: #3264FF;    // Xanh dương neon
+  --w-warning: #FFEA00; // Vàng neon
+  --w-danger: #FF3F3F;  // Đỏ neon
+
+  // Header & Footer
+  --w-header-bg: #14062E; // Tối hơn body một chút
+  --w-header-text-color: var(--w-primary);
+  --w-header-border-bottom: 1px solid var(--w-primary-border-subtle);
+  --w-footer-bg: #14062E;
+  --w-footer-text-color: #8074A8; // Tím nhạt hơn
+
+  // Link
+  --w-link-color: var(--w-secondary);
+  --w-link-hover-color: #80F2FF; // Cyan sáng hơn
+  --w-link-text-shadow: 0 0 3px rgba(var(--w-secondary-rgb), 0.7);
+
+  // Buttons
+  --w-btn-primary-bg: var(--w-primary);
+  --w-btn-primary-border-color: var(--w-primary);
+  --w-btn-primary-hover-bg: var(--w-primary-dark);
+  --w-btn-primary-hover-border-color: var(--w-primary-dark);
+  --w-btn-primary-text-color: var(--w-primary-text-emphasis);
+  --w-btn-box-shadow: 0 0 8px rgba(var(--w-primary-rgb), 0.5); // Bóng mờ cho nút
+
+  // Box shadows - Tạo hiệu ứng phát sáng neon
+  --w-box-shadow: 0 0 15px rgba(var(--w-secondary-rgb), 0.3), 0 0 5px rgba(var(--w-primary-rgb), 0.2);
+  --w-box-shadow-sm: 0 0 8px rgba(var(--w-secondary-rgb), 0.2);
+  --w-box-shadow-lg: 0 0 25px rgba(var(--w-secondary-rgb), 0.4), 0 0 10px rgba(var(--w-primary-rgb), 0.3);
+
+  // Font chữ (có thể chọn font hiện đại, không chân)
+  // --w-font-sans-serif: "Roboto Condensed", "Arial Narrow", sans-serif;
+
+  h1, h2, h3, h4, h5, h6, .section-title h3, .nav-link, .btn {
+    text-shadow: 0 0 5px rgba(var(--w-primary-rgb), 0.3), 0 0 10px rgba(var(--w-secondary-rgb), 0.2);
+  }
+
+  .card, .modal-content, .dropdown-menu {
+    border: 1px solid var(--w-border-color);
+    box-shadow: var(--w-box-shadow);
+  }
+  body & {
+    background-image: url('/assets/images/theme_backgrounds/neon_grid.svg'); // Họa tiết lưới neon
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}

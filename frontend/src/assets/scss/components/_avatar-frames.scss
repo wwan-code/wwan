@@ -1,0 +1,181 @@
+// src/assets/scss/components/_avatar-frames.scss
+
+.avatar-frame-wrapper {
+    display: inline-block;
+    border-radius: 50%;
+    padding: 4px; // Khoảng đệm mặc định, có thể bị ghi đè bởi class cụ thể
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    vertical-align: middle; // Giúp căn chỉnh tốt hơn khi inline
+
+    img {
+        display: block;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    // --- KHUNG CƠ BẢN ---
+    &.avatar-frame-simple-border {
+        border: 3px solid var(--w-primary);
+        padding: 2px;
+    }
+
+    // --- KHUNG TÂN BINH ---
+    &.avatar-frame-newbie {
+        background: var(--w-success-gradient, linear-gradient(45deg, #5cb85c, #4cae4c));
+        box-shadow: 0 0 10px rgba(var(--w-success-rgb, (92, 184, 92)), 0.6);
+    }
+
+    // --- KHUNG VIP ---
+    &.avatar-frame-vip-bronze {
+        background: linear-gradient(135deg, #b87333, #E6A35C);
+        box-shadow: 0 0 12px rgba(205, 127, 50, 0.6);
+        border: 2px solid #8B4513;
+    }
+
+    &.avatar-frame-vip-silver {
+        background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+        box-shadow: 0 0 15px rgba(192, 192, 192, 0.6);
+        border: 2px solid #a9a9a9;
+    }
+
+    &.avatar-frame-vip-gold {
+        box-shadow: 0 0 18px rgba(255, 215, 0, 0.7);
+        position: relative; // Cho pseudo-element
+        overflow: hidden; // Ngăn hiệu ứng tràn ra ngoài
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: conic-gradient(transparent, rgba(255, 255, 255, 0.5), transparent 35%, transparent 70%, rgba(255,255,255,0.3) , transparent);
+            animation: rotate-shine 4s linear infinite;
+            border-radius: 50%; // Đảm bảo nó tròn theo wrapper
+        }
+    }
+
+    // --- KHUNG SỰ KIỆN ---
+    &.avatar-frame-summer-event-2025 {
+        padding: 5px;
+        background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+        border: 2px dotted #fff3cd;
+        box-shadow: 0 0 10px rgba(252, 182, 159, 0.7);
+
+        &::after {
+            content: "☀️";
+            position: absolute;
+            top: -8px; // Điều chỉnh vị trí
+            right: -8px;
+            font-size: 1.3em;
+            text-shadow: 0 0 5px #fff;
+        }
+    }
+
+    &.avatar-frame-winter-event {
+        background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+        border: 3px dashed #e7f5ff;
+        box-shadow: 0 0 15px rgba(161, 196, 253, 0.6);
+        &::before {
+            content: "❄️";
+            position: absolute;
+            bottom: -5px; // Điều chỉnh vị trí
+            left: -5px;
+            font-size: 1.1em;
+        }
+    }
+
+    // --- KHUNG HIỆU ỨNG ĐẶC BIỆT ---
+    &.avatar-frame-animated-gradient {
+        padding: 3px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: -3px; // Phủ ra ngoài một chút để tạo hiệu ứng viền xoay
+            width: calc(100% + 6px);
+            height: calc(100% + 6px);
+            background: conic-gradient(
+                from 0deg, // Bắt đầu từ góc nào
+                var(--w-primary, #0d9394),
+                var(--w-info, #0dcaf0),
+                var(--w-success, #198754),
+                var(--w-warning, #ffc107),
+                var(--w-danger, #dc3545),
+                var(--w-primary, #0d9394)
+            );
+            animation: rotate-gradient 5s linear infinite;
+            z-index: 0; // Nằm dưới ảnh
+            border-radius: inherit; // Theo border-radius của wrapper
+        }
+        img {
+            position: relative; // Để nằm trên ::before
+            z-index: 1;
+            border: 3px solid var(--w-body-bg); // Tạo viền bên trong để tách ảnh khỏi gradient xoay
+        }
+    }
+
+    &.avatar-frame-glowing-pulse {
+        border: 2px solid transparent; // Nền cho glow
+        animation: pulse-glow 2.5s infinite ease-in-out;
+    }
+
+    // --- KHUNG DỰA TRÊN CẤP ĐỘ ---
+    &.avatar-frame-level-10 {
+        border: 3px solid var(--w-info, #0dcaf0);
+        box-shadow: 0 0 12px rgba(var(--w-info-rgb, (13,202,240)), 0.7),
+                    inset 0 0 6px rgba(var(--w-info-rgb, (13,202,240)), 0.5);
+    }
+    &.avatar-frame-level-20 {
+        border: 3px solid var(--w-warning, #ffc107);
+        box-shadow: 0 0 15px rgba(var(--w-warning-rgb, (255,193,7)), 0.7),
+                    inset 0 0 8px rgba(var(--w-warning-rgb, (255,193,7)), 0.5);
+        background: radial-gradient(ellipse farthest-corner at right bottom, #feda75 0%, #fa7e1e 15%, #d62976 30%, #962fbf 45%, #4f5bd5 70%, #209cff 100%);
+        // Một ví dụ gradient khác, bạn có thể tùy chỉnh
+    }
+
+    // --- KHUNG DỰA TRÊN VAI TRÒ (ROLE) ---
+    &.avatar-frame-admin {
+        border: 3px solid var(--w-danger, #dc3545);
+        box-shadow: 0 0 12px rgba(var(--w-danger-rgb, (220,53,69)), 0.7);
+        background-image: repeating-linear-gradient(
+            -45deg,
+            rgba(var(--w-danger-rgb), 0.05),
+            rgba(var(--w-danger-rgb), 0.05) 6px,
+            transparent 6px,
+            transparent 12px
+        );
+    }
+
+    &.avatar-frame-editor {
+        border: 3px solid var(--w-purple, #6f42c1); // Giả sử có biến --w-purple
+        box-shadow: 0 0 10px rgba(var(--w-purple-rgb, (111,66,193)), 0.6); // Giả sử có --w-purple-rgb
+    }
+}
+
+// Animation cho hiệu ứng
+@keyframes rotate-gradient {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes rotate-shine {
+    0% { transform: translate(-25%, -25%) rotate(0deg); } // Điều chỉnh translate để tâm xoay đúng hơn
+    100% { transform: translate(-25%, -25%) rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(var(--w-primary-rgb), 0.3), 0 0 12px rgba(var(--w-primary-rgb), 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(var(--w-primary-rgb), 0.6), 0 0 30px rgba(var(--w-primary-rgb), 0.5);
+  }
+}

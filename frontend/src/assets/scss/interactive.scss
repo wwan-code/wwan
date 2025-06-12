@@ -1,0 +1,175 @@
+.interactive {
+    background: var(--w-body-bg)
+}
+
+.interactive__btn {
+    border: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    appearance: none;
+    text-transform:none;
+    color: var(--w-body-color);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+
+    &:focus {
+        outline: 0px;
+    }
+}
+
+.interactive__btn:before {
+    display: block;
+    content: ""
+}
+
+.interactive__btn.active {
+    color: var(--w-primary);
+    font-weight: 700;
+}
+
+.interactive:not(.interactive--mobile) {
+    padding: 2px 0
+}
+
+.interactive:not(.interactive--mobile) .interactive__actions {
+    display: flex;
+    align-items: center
+}
+
+.interactive:not(.interactive--mobile) .interactive__btn {
+    padding: 0 8px;
+    display: grid;
+    line-height: 32px;
+    grid-template-columns: 1fr auto;
+    column-gap: 4px;
+    align-items: center
+}
+
+.interactive:not(.interactive--mobile) .interactive__btn:not(.interactive:not(.interactive--mobile) .interactive__btn:first-child) {
+    margin-left: 8px
+}
+
+.interactive:not(.interactive--mobile) .interactive__btn:before {
+    width: 24px;
+    background-size: 100%
+}
+
+.interactive:not(.interactive--mobile) .interactive__btn:hover {
+    color: var(--w-primary)
+}
+
+.interactive__like:before {
+    content: "\f164";
+    font-family: "Font Awesome 6 Pro";
+}
+
+.interactive__bookmark:before {
+    content: "\f02e";
+    font-family: "Font Awesome 6 Pro";
+}
+
+.interactive__fav:before {
+    content: "\f004";
+    font-family: "Font Awesome 6 Pro";
+}
+.interactive__comments::before {
+    content: "\f4a3";
+    font-family: "Font Awesome 6 Pro";
+}
+.interactive:not(.interactive--mobile) .interactive__text {
+    font-weight: 400;
+    font-size: .85rem
+}
+
+.interactive:not(.interactive--mobile).interactive--shrinked .interactive__fav .interactive__text {
+    transform: translate(-10px, -10px)
+}
+
+.interactive:not(.interactive--mobile).interactive--shrinked .interactive__bookmark .interactive__text {
+    display: none
+}
+
+.interactive--mobile {
+    display: grid;
+    grid-template-columns: 1fr 44px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 6px
+}
+
+.interactive--mobile .interactive__actions {
+    display: grid;
+    grid-template-columns: repeat(3, 44px);
+    column-gap: 22px;
+    align-items: center
+}
+
+.interactive--mobile .interactive__btn {
+    position: relative;
+    padding: 11px
+}
+
+.interactive--mobile .interactive__btn:before {
+    width: 22px;
+    height: 22px
+}
+
+.interactive--mobile .interactive__text {
+    position: absolute;
+    top: 5px;
+    left: 100%;
+    margin-left: -16px;
+    line-height: 12px;
+    font-size: 12px;
+    white-space: nowrap
+}
+
+@media (max-width: 768px) {
+    .interactive__actions {
+        display: flex;
+        margin-top: 17px;
+        margin-bottom: 32px
+    }
+}
+
+.interactive__actions_flex {
+    flex: 1;
+    text-align: center
+}
+
+.interactive__actions_flex.active .interactive__text {
+    color: var(--w-primary)
+}
+
+.interactive__actions_flex.active .interactive__btn.interactive__fav {
+    font-weight: 700;
+}
+
+.interactive__actions_flex.disabled {
+    opacity: .55
+}
+
+.interactive__actions_flex .interactive__btn {
+    font-size: 1.2rem;
+    display: block;
+    margin: auto
+}
+
+.active .interactive__like .interactive__actions_flex .interactive__btn {
+    font-weight: 700;
+}
+
+.interactive__actions_flex .interactive__text {
+    font-size: .75rem;
+    font-weight: 400;
+    line-height: 12px;
+    color: rgba(var(--w-emphasis-color-rgb),.55);
+    display: inline-block;
+    margin-top: 4px;
+    vertical-align: top
+}

@@ -1,0 +1,91 @@
+// src/assets/scss/themes/_ocean-sunset.scss
+
+// Áp dụng khi class 'custom-theme-theme-ocean-sunset' được thêm vào thẻ <html> hoặc <body>
+// 'theme-ocean-sunset' khớp với trường 'value' của ShopItem.
+:root.custom-theme-theme-ocean-sunset {
+  // Màu sắc cơ bản
+  --w-body-bg: #FFF0E5; // Màu cát biển ấm áp hơn một chút
+  --w-body-color: #3B3A39; // Màu chữ tối, dễ đọc
+  --w-card-bg: #FFFFFF;
+  --w-secondary-bg: #FFEADD; // Nền phụ trợ nhẹ nhàng
+  --w-secondary-color: #3B3A39;
+  --w-paper-bg: #FFF8F0;    // Nền cho các element "giấy" như dropdown, modal
+
+  --w-border-color: #FFB5A7; // Màu hồng cam nhạt cho viền
+  --w-border-color-translucent: rgba(255, 181, 167, 0.4);
+  --w-border-radius: 0.4rem; // Hơi bo tròn hơn một chút
+  --w-border-radius-sm: 0.25rem;
+  --w-border-radius-lg: 0.6rem;
+
+  // Màu chủ đạo của theme này
+  --w-primary: #FF7A59; // Màu cam hoàng hôn đậm hơn
+  --w-primary-rgb: 255, 122, 89;
+  --w-primary-dark: #E5624B;
+  --w-primary-light: #FF937A;
+  --w-primary-text-emphasis: #FFFFFF;
+  --w-primary-bg-subtle: #FFEAE5;
+  --w-primary-border-subtle: #FFCDBD;
+
+  // Màu phụ trợ
+  --w-secondary: #6AC7C4; // Màu xanh ngọc biển dịu mát
+  --w-secondary-rgb: 106, 199, 196;
+  --w-secondary-text-emphasis: #FFFFFF;
+  --w-secondary-bg-subtle: #E0F2F1;
+  --w-secondary-border-subtle: #A7DFDC;
+
+
+  // Các màu khác (success, info, warning, danger)
+  --w-success: #5CB85C;
+  --w-success-rgb: 92, 184, 92;
+  --w-info: #5BC0DE;
+  --w-info-rgb: 91, 192, 222;
+  --w-warning: #F0AD4E;
+  --w-warning-rgb: 240, 173, 78;
+  --w-danger: #D9534F;
+  --w-danger-rgb: 217, 83, 79;
+
+  // Header & Footer
+  --w-header-bg: linear-gradient(120deg, #FF7A59 0%, #FFB5A7 100%);
+  --w-header-text-color: #FFFFFF;
+  --w-footer-bg: #4A3B33; // Màu nâu sẫm của cát ướt
+  --w-footer-text-color: #FFF0E5;
+
+  // Link
+  --w-link-color: var(--w-primary);
+  --w-link-hover-color: var(--w-primary-dark);
+  --w-link-decoration: none;
+  --w-link-hover-decoration: underline;
+
+  // Buttons (ví dụ cho nút primary)
+  --w-btn-primary-bg: var(--w-primary);
+  --w-btn-primary-border-color: var(--w-primary);
+  --w-btn-primary-hover-bg: var(--w-primary-dark);
+  --w-btn-primary-hover-border-color: var(--w-primary-dark);
+  --w-btn-primary-text-color: var(--w-primary-text-emphasis);
+  --w-btn-padding-y: 0.45rem;
+  --w-btn-padding-x: 0.9rem;
+
+  // Box shadows
+  --w-box-shadow: 0 .4rem .8rem rgba(74, 59, 51, .12);
+  --w-box-shadow-sm: 0 .1rem .2rem rgba(74, 59, 51, .08);
+  --w-box-shadow-lg: 0 .8rem 2.5rem rgba(74, 59, 51, .15);
+
+  // Thêm hình nền nhẹ nhàng nếu muốn
+  // body& { // Hoặc html&
+  //   background-image: url('/assets/images/theme_backgrounds/ocean_sunset_pattern.png'); // Đường dẫn đến họa tiết
+  //   background-repeat: repeat;
+  //   background-attachment: fixed;
+  // }
+
+  // Component-specific overrides (ví dụ)
+  .movie-card__title a, .comic-card__title a {
+    color: var(--w-secondary); // Sử dụng màu phụ trợ cho tiêu đề card
+    &:hover {
+      color: color-mix(black, color-mix(#6AC7C4, gray, 10%), 10%);
+    }
+  }
+
+  .film-sidebar__name {
+    color: var(--w-primary-dark);
+  }
+}

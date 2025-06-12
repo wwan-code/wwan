@@ -1,0 +1,157 @@
+// src/assets/scss/components/_single-comic.scss
+
+.comic-card {
+    border-radius: var(--w-border-radius-lg, 0.5rem);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+
+    &:hover {
+        box-shadow: 0 8px 32px rgba(99,102,241,0.13);
+        transform: translateY(-4px);
+        
+        .comic-card__overlay {
+            opacity: 1;
+        }
+    }
+
+    &__image-wrap {
+        position: relative;
+        width: 100%;
+        padding-top: 150%;
+        background-position: center;
+        background-size: cover;
+        border-radius: var(--w-border-radius-lg);
+        overflow: hidden;
+    }
+
+    &__image-link {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../../images/loading.gif);
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: filter 0.2s;
+        background: var(--w-body-bg);
+        display: block;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(var(--w-black-rgb), 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.25s;
+        pointer-events: none;
+    }
+
+    &__play-icon {
+        color: var(--w-white);
+        font-size: 2.05rem;
+        opacity: 0.8;
+        text-shadow: 0 2px 8px rgba(var(--w-black-rgb), 0.15);
+    }
+
+    &__badge {
+        position: absolute;
+        padding: 0.25em 0.6em;
+        font-size: 0.7rem;
+        font-weight: 500;
+        border-radius: var(--w-border-radius-md);
+        color: var(--w-white);
+        text-shadow: 0 1px 1px rgba(var(--w-black-rgb), 0.5);
+        z-index: 1;
+
+        &--chapter { bottom: 0.25rem; left: 0.25rem; background: #6366f1; }
+        &--status { top: 0.5rem; right: 0.5rem; }
+        &--views { top: 0.5rem; left: 0.5rem; background: #0d9394; }
+    }
+
+    .status--info { background: #0ea5e9; }
+    .status--success { background: #22c55e; }
+    .status--warning { background: #facc15; color: #222; }
+    .status--secondary { background: #64748b; }
+    .status--light { background: #e5e7eb; color: #222; }
+
+    &__content {
+        padding: 0.8rem .5rem .5rem .5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--w-body-color);
+        line-height: 1.2;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 0.3em;
+        min-height: calc(1rem * 1.2 * 2); // Đảm bảo chiều cao cho 2 dòng
+
+        a {
+            color: inherit;
+            text-decoration: none;
+
+            &:hover {
+                color: var(--w-primary);
+            }
+        }
+    }
+
+    &__meta {
+        font-size: 0.75rem;
+        color: var(--w-secondary-color);
+        margin-top: auto; // Đẩy meta xuống dưới
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; // Căn đều các item
+        gap: 0.2rem;
+
+        .comic-meta__item {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            i {
+                // Icon
+                margin-right: 0.3em;
+                color: var(--w-gray-500); // Màu icon nhẹ hơn
+                font-size: 0.9em;
+            }
+        }
+
+        .comic-meta__author {
+            max-width: 60%;
+        }
+
+        // Giới hạn chiều rộng
+        .comic-meta__views {
+            /* Không cần max-width */
+        }
+    }
+}

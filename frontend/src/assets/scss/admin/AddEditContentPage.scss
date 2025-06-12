@@ -1,0 +1,106 @@
+// src/assets/scss/admin/AddEditContentPage.scss
+.add-edit-content-page {
+    .page-actions-header {
+        .page-main-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--w-emphasis-color);
+
+            .fw-light {
+                color: var(--w-secondary-color);
+                font-weight: 400 !important;
+            }
+        }
+    }
+
+    // Dropzone cho ảnh
+    .dropzone.image-dropzone {
+        border: 2px dashed var(--w-border-color);
+        border-radius: var(--w-border-radius);
+        background-color: var(--w-tertiary-bg);
+        transition: border-color 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            border-color: var(--w-primary);
+        }
+
+        .dz-message {
+            color: var(--w-secondary-color);
+
+            i {
+                color: var(--w-gray-400); // Màu icon placeholder
+            }
+
+            .btn-label-primary {
+                color: var(--w-primary);
+                border-color: var(--w-primary);
+                background-color: rgba(var(--w-primary-rgb), 0.1);
+
+                &:hover {
+                    background-color: rgba(var(--w-primary-rgb), 0.2);
+                }
+            }
+        }
+    }
+
+    // Multi-select (giống MovieMetaForm)
+    .form-floating-advance-select {
+        .form-multi-select-input-group {
+            border: 1px solid var(--w-border-color);
+            border-radius: var(--w-border-radius-sm);
+            background-color: var(--w-body-bg);
+            padding: 0.1rem 0.25rem; // Giảm padding một chút
+            min-height: calc(1.5em + 0.875rem + 2px); // Đồng bộ chiều cao với form-control-sm
+        }
+
+        .form-multi-select-tag {
+            font-size: 0.8rem;
+            padding: 0.15rem 0.4rem;
+            background-color: var(--w-primary-bg-subtle);
+            color: var(--w-primary-text-emphasis);
+            border-color: var(--w-primary-border-subtle);
+        }
+
+        .form-multi-select-search {
+            font-size: 0.875rem;
+        }
+
+        .form-multi-select-dropdown {
+            border-color: var(--w-border-color);
+            box-shadow: var(--w-box-shadow);
+            margin-top: 2px;
+        }
+
+        .form-multi-select-option {
+            font-size: 0.875rem;
+            padding: 0.4rem 1rem;
+
+            &.form-multi-select-option-with-checkbox {
+                padding-inline-start: calc(1rem + 1em + 0.5rem); // Điều chỉnh padding
+
+                &::before {
+                    // Style cho checkbox
+                    top: 0.55rem;
+                    inset-inline-start: 0.75rem;
+                }
+            }
+
+            &:hover {
+                background-color: var(--w-tertiary-bg);
+            }
+
+            &.form-multi-selected {
+                background-color: var(--w-primary-bg-subtle);
+                color: var(--w-primary-text-emphasis);
+
+                &::before {
+                    background-color: var(--w-primary);
+                    border-color: var(--w-primary);
+                }
+            }
+        }
+    }
+}

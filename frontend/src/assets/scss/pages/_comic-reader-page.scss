@@ -1,0 +1,554 @@
+// =======================
+// Biến màu và kích thước dùng chung
+// =======================
+:root {
+    --reader-bg: var(--w-body-bg);
+    --reader-bg-gradient: linear-gradient(135deg, var(--w-body-bg) 0%, var(--w-tertiary-bg) 100%);
+    --reader-text: var(--w-body-color);
+    --reader-controls-bg: rgba(var(--w-tertiary-bg-rgb),0.9);
+    --reader-controls-text: var(--w-tertiary-color);
+    --reader-controls-border: var(--w-tertiary-bg);
+    --reader-controls-height: var(--w-header-height);
+    --reader-controls-height-mobile: 70px;
+    --reader-bottom-nav-height: 50px;
+    --reader-primary: var(--w-primary);
+    --reader-primary-contrast: var(--w-primary-contrast);
+    --reader-secondary: var(--w-primary-bg-subtle);
+    --reader-border-radius: 16px;
+    --reader-border-radius-sm: 8px;
+    --reader-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    --reader-shadow-hover: 0 8px 32px rgba(0,0,0,0.22);
+    --reader-shadow-controls: 0 2px 12px rgba(0,0,0,0.13);
+    --reader-shadow-bottom: 0 -2px 12px rgba(0,0,0,0.10);
+    --reader-comment-bg: rgba(255,255,255,0.04);
+    --reader-comment-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    --reader-comment-radius: 18px;
+    --reader-comment-radius-mobile: 10px;
+    --reader-page-max-width: 800px;
+    --reader-comment-max-width: 900px;
+    --reader-placeholder-bg: var(--w-secondary-bg);
+    --reader-placeholder-color: var(--w-secondary-color);
+    --reader-error-bg: #2d1a1a;
+    --reader-error-color: #e57373;
+    --reader-danger: #e57373;
+    --reader-danger-bg: #2d1a1a;
+    --reader-danger-border: #842029;
+    --reader-danger-text: #58151c;
+}
+
+.body-comic-reader-active {
+    .footer {
+        display: none;
+    }
+}
+
+.reader-controls {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: .875rem;
+    .controls-breadcrumb {
+        display: flex;
+        gap: 0.5rem;
+        .breadcrumb {
+            margin-bottom: 10px;
+        }
+        .breadcrumb-item {
+            text-transform: capitalize;
+            &.active {
+                .breadcrumb-link {
+                    color: var(--reader-primary);
+                }
+            }
+        }
+        .breadcrumb-link {
+            color: var(--reader-text);
+            text-decoration: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+            vertical-align: middle;
+            transition: color 0.2s ease;
+            &:hover {
+                color: var(--reader-primary);
+            }
+            
+        }
+        .comic-title-breadcrumb {
+            max-width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @media (min-width: 768px) {
+                max-width: 230px;
+            }
+        }
+    }
+    .controls-navigation {
+        display: flex;
+        gap: 0.5rem;
+        .btn-nav {
+            background: var(--reader-controls-bg);
+            color: var(--reader-controls-text);
+            border: 1px solid var(--reader-controls-border);
+            padding: 0.3rem 1rem 0.3rem 0.5rem;
+            border-radius: var(--reader-border-radius-sm);
+            font-size: 1rem;
+            transition: color 0.2s, background 0.2s, border-color 0.2s;
+            @media (max-width: 767px) {
+                padding: 0.3rem 0.5rem;
+            }
+            &:hover {
+                background: var(--reader-primary);
+                color: var(--reader-primary-contrast);
+                border-color: var(--reader-primary);
+            }
+            &:focus {
+                outline-color: var(--reader-primary);
+            }
+        }
+        .chapter-select {
+            background: var(--reader-controls-bg);
+            color: var(--reader-controls-text);
+            border: 1px solid var(--reader-controls-border);
+            padding: 0.3rem 1rem 0.3rem 0.5rem;
+            border-radius: var(--reader-border-radius-sm);
+            font-size: 1rem;
+            max-width: 180px;
+            @media (max-width: 767px) {
+                max-width: 110px;
+            }
+            &:focus {
+                outline-color: var(--reader-primary);
+            }
+        }
+    }
+}
+
+// =======================
+// Layout tổng thể
+// =======================
+.comic-reader-page {
+    background: var(--reader-bg-gradient);
+    color: var(--reader-text);
+    min-height: 100vh;
+    padding-top: calc(var(--w-header-height) + 24px);
+    padding-bottom: 60px;
+    position: relative;
+}
+
+// =======================
+// Progress bar
+// =======================
+.reader-loading-progress-bar {
+    position: fixed;
+    top: var(--w-header-height);
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0,0,0,0.3);
+    z-index: 999;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    .progress-bar-inner {
+        height: 100%;
+        background: var(--reader-primary);
+        color: var(--reader-primary-contrast);
+        font-size: 0.7rem;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        transition: width 0.3s;
+        box-shadow: inset 0 -1px 1px rgba(0,0,0,0.15);
+    }
+}
+
+// =======================
+// Vùng đọc truyện
+// =======================
+.comic-content-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 60vh;
+    outline: none;
+}
+
+.comic-page-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    animation: fadeInPage 0.5s;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(24px);}
+    to { opacity: 1; transform: none;}
+}
+
+.comic-page-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.comic-page-image {
+    max-width: 100%;
+    width: auto;
+    cursor: zoom-in;
+}
+
+.comic-page-placeholder,
+.comic-page-error {
+    min-height: 300px;
+    // border-radius: var(--reader-border-radius);
+    background: var(--reader-placeholder-bg);
+    color: var(--reader-placeholder-color);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    font-size: 1rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.comic-page-error {
+    background: var(--reader-danger-bg);
+    border-color: var(--reader-danger-border);
+    color: var(--reader-danger-text);
+
+    .icon-before {
+        margin-right: 0.5em;
+    }
+
+    .btn-retry-load {
+        background: var(--reader-danger-bg);
+        border: 1px solid var(--reader-danger-border);
+        color: var(--reader-danger-text);
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+        margin-top: 0.5rem;
+        border-radius: var(--reader-border-radius-sm);
+
+        &:hover {
+            background: var(--reader-danger);
+            color: #fff;
+        }
+    }
+}
+
+// =======================
+// Bình luận
+// =======================
+.comic-comments-area {
+    background: var(--reader-comment-bg);
+    border-radius: var(--reader-comment-radius);
+    box-shadow: var(--reader-comment-shadow);
+    margin: 40px auto 0 auto;
+    padding: 36px 20px 28px 20px;
+    max-width: var(--reader-comment-max-width);
+    width: 100%;
+}
+
+// =======================
+// Thanh điều hướng dưới
+// =======================
+.reader-bottom-navigation {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: var(--reader-controls-bg);
+    backdrop-filter: blur(8px);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid var(--reader-controls-border);
+    height: var(--reader-bottom-nav-height);
+    transition: opacity 0.3s, visibility 0.3s;
+    opacity: 0;
+    visibility: hidden;
+
+    &.controls-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .btn-nav-bottom {
+        background: transparent;
+        color: currentColor;
+        border: 1px solid transparent;
+        padding: 0.5rem 1rem;
+        border-radius: var(--reader-border-radius-sm);
+        font-size: 0.9rem;
+        transition: color 0.2s, background 0.2s;
+        display: inline-flex;
+        align-items: center;
+
+        i {
+            margin: 0 0.3em;
+            font-size: 0.9em;
+        }
+
+        &:hover:not(:disabled) {
+            color: var(--reader-primary-contrast);
+            background: var(--reader-primary);
+        }
+
+        &:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+    }
+}
+.reader-bottom-navigation {
+    align-items: stretch;
+    .bottom-nav-controls {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        .btn-nav-bottom, .chapter-select {
+            margin: 0 2px;
+        }
+        .chapter-select {
+            background: var(--reader-controls-bg);
+            color: var(--reader-controls-text);
+            border: 1px solid var(--reader-controls-border);
+            padding: 0.3rem 1rem 0.3rem 0.5rem;
+            border-radius: var(--reader-border-radius-sm);
+            font-size: 1rem;
+            max-width: 180px;
+            @media (max-width: 767px) {
+                max-width: 110px;
+            }
+            &:focus {
+                outline-color: var(--reader-primary);
+            }
+        }
+    }
+}
+// =======================
+// Responsive
+// =======================
+@media (max-width: 600px) {
+    .comic-content-area {
+        padding: 8px 0 0 0;
+        gap: 10px;
+    }
+    .comic-comments-area {
+        padding: 16px 4px 12px 4px;
+        border-radius: var(--reader-comment-radius-mobile);
+    }
+}
+
+// =======================
+// Spinner hiệu ứng
+// =======================
+.spinner-eff,
+.spinner-eff-small {
+    display: inline-block;
+    vertical-align: -0.125em;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-eff-spin .75s linear infinite;
+}
+
+.spinner-eff {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0.25em solid var(--reader-primary);
+}
+
+.spinner-eff-small {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: .2em solid var(--reader-secondary);
+}
+
+@keyframes spinner-eff-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// =======================
+// Loader toàn trang
+// =======================
+.page-loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(24,28,36,0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2050;
+
+    p {
+        margin-top: 1rem;
+        font-size: 1rem;
+        color: var(--reader-primary);
+    }
+}
+
+.color-dot {
+    border: 1px solid var(--w-border-color-translucent);
+    cursor: pointer;
+    outline: none;
+    transition: border 0.2s;
+    &.active {
+        border: 2px solid var(--w-primary);
+        box-shadow: 0 0 0 2px rgba(var(--w-primary-rgb),0.15);
+    }
+}
+
+.reader-flip-mode {
+    .comic-content-area {
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        padding-bottom: 40px;
+    }
+
+    .comic-page-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0 auto;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        position: relative;
+    }
+
+    .comic-page-image-container {
+        position: relative;
+        width: 100vw;
+        max-width: 100vw;
+        min-height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--reader-placeholder-bg);
+        border-radius: 0;
+        box-shadow: none;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+
+    .comic-page-image {
+        width: 100vw;
+        max-width: 100vw;
+        height: auto;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 0;
+        background: #111;
+        transition: transform 0.2s cubic-bezier(.4,0,.2,1), box-shadow 0.2s;
+        cursor: zoom-in;
+        display: block;
+    }
+
+    .flip-controls {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .btn-flip {
+        pointer-events: auto;
+        background: rgba(24,28,36,0.85);
+        color: var(--reader-text);
+        border: 2px solid var(--reader-controls-border);
+        border-radius: 50%;
+        width: 54px;
+        height: 54px;
+        font-size: 1.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+        transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+        outline: none;
+        opacity: 0.92;
+        &:hover:not(:disabled) {
+            background: var(--reader-primary);
+            color: #fff;
+            border-color: var(--reader-primary);
+            box-shadow: 0 4px 16px rgba(99,102,241,0.13);
+        }
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+    .btn-flip:first-child {
+        margin-left: 12px;
+    }
+    .btn-flip:last-child {
+        margin-right: 12px;
+    }
+
+    .flip-page-info {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.15rem;
+        color: var(--reader-text);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        background: rgba(0,0,0,0.18);
+        padding: 0.5rem 1.5rem;
+        border-radius: 999px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        min-width: 120px;
+        text-align: center;
+        user-select: none;
+        z-index: 3;
+    }
+}
+
+@media (max-width: 700px) {
+    .reader-flip-mode {
+        .comic-page-section,
+        .comic-page-image-container {
+            max-width: 100vw;
+            width: 100vw;
+        }
+        .comic-page-image {
+            max-width: 100vw;
+            width: 100vw;
+            max-height: 60vh;
+        }
+        .flip-controls {
+            .btn-flip {
+                width: 38px;
+                height: 38px;
+                font-size: 1.1rem;
+            }
+        }
+        .flip-page-info {
+            font-size: 1rem;
+            padding: 0.3rem 0.8rem;
+            min-width: 70px;
+            bottom: 12px;
+        }
+    }
+}

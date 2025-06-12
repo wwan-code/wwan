@@ -1,0 +1,57 @@
+// frontend/src/assets/scss/components/comments/_comment-section.scss
+
+.comment-section {
+    // border-top: 1px solid var(--w-border-color); // Đã có trong JSX
+    // margin-top: 2rem; // Đã có trong JSX
+    // padding-top: 1.5rem; // Đã có trong JSX
+
+    &__title {
+        font-size: 1.5rem; // Kích thước tiêu đề cho mục bình luận
+        font-weight: 600;
+        color: var(--w-heading-color);
+        margin-bottom: 1rem; // Khoảng cách với form hoặc danh sách
+        .icon-before {
+            margin-right: 0.5rem;
+            color: var(--w-primary);
+        }
+    }
+
+    .comment-login-prompt {
+        text-align: center;
+        padding: 1rem;
+        background-color: var(--w-body-tertiary-bg);
+        border-radius: var(--w-border-radius);
+        margin: 1rem 0;
+        a {
+            font-weight: 600;
+            color: var(--w-primary);
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .loading-placeholder--small,
+    .alert,
+    .text-center.text-muted { // Style cho các thông báo loading, error, empty
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+// Spinner cho nút (nếu bạn không dùng spinner của Bootstrap)
+.spinner--small {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    border: 0.15em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-border .75s linear infinite;
+    margin-right: 0.3rem;
+}
+
+@keyframes spinner-border {
+    to { transform: rotate(360deg); }
+}

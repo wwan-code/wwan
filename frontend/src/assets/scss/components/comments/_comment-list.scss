@@ -1,0 +1,37 @@
+// frontend/src/assets/scss/components/comments/_comment-list.scss
+
+.comment-list {
+    margin-top: 1.5rem;
+
+    &__item-wrapper {
+        &:not(:last-child) {
+            // border-bottom: 1px solid var(--w-border-color-translucent); // Đã chuyển vào CommentItem
+        }
+    }
+
+    &__replies {
+        // margin-left: 2.5rem; // Thụt lề cho toàn bộ khối replies (đã xử lý ở CommentItem--reply)
+        // border-left: 2px solid var(--w-border-color-translucent); // Đường kẻ dọc cho replies
+        // padding-left: 1rem;
+        // margin-top: 0.5rem;
+        // Nếu muốn đường kẻ, bỏ comment-item--reply padding-left và dùng ở đây
+
+        .comment-item--reply {
+            padding-top: 0.75rem; // Khoảng cách giữa các reply
+
+            &:last-child {
+                border-bottom: none; // Bỏ border cho reply cuối cùng trong một nhóm
+                padding-bottom: 0;
+            }
+        }
+        .load-more-replies-btn {
+            font-size: 0.85rem;
+            // padding: 0.25rem 0.75rem;
+            color: var(--w-primary);
+            border-color: var(--w-primary-border-subtle);
+            &:hover {
+                background-color: var(--w-primary-bg-subtle);
+            }
+        }
+    }
+}

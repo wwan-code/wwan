@@ -1,0 +1,47 @@
+// src/assets/scss/admin/_admin-form.scss
+.admin-form-card { /* Tương tự như admin-content-card */
+    @extend .admin-content-card; // Kế thừa style
+     &__header { /* ... */ }
+     &__title { /* ... */ }
+     &__body { padding: 1.5rem; }
+}
+.admin-form-card {
+    .image-preview-container {
+        // Style đã có, có thể thêm:
+        border: 1px dashed var(--w-border-color);
+        img.image-preview-profile { // Ghi đè style nếu cần
+            width: 64px; height: 64px; object-fit: contain;
+        }
+        .btn-remove-preview {
+            // Style nút xóa preview
+        }
+    }
+}
+.custom-form { // Đã có ở _profile-page.scss, có thể dùng chung hoặc điều chỉnh
+    .form-row-grid {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(2, 1fr); // Mặc định 2 cột
+            &.three-cols { grid-template-columns: repeat(3, 1fr); } // Thêm class cho 3 cột
+        }
+        @media (min-width: 992px) {
+             &.three-cols { grid-template-columns: repeat(3, 1fr); }
+        }
+         &.two-thirds-one-third { // Grid tùy chỉnh cho checkbox
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+        }
+    }
+    .form-group { /* ... */ }
+    .form-label { /* ... */ }
+    .form-control, .form-select { /* ... */ }
+    .form-check.form-switch { /* ... */ }
+    .form-actions { text-align: right; }
+    .form-section-title {
+        font-size: 0.9rem; font-weight: 600; text-transform: uppercase;
+        color: var(--w-secondary-text-emphasis); margin-top: 1.5rem; margin-bottom: 0.75rem;
+        padding-bottom: 0.25rem; border-bottom: 1px solid var(--w-border-color-translucent);
+    }
+}

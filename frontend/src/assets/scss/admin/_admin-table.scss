@@ -1,0 +1,100 @@
+// src/assets/scss/admin/_admin-table.scss
+.table-controls-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem 0; // Padding cho table controls nếu nằm ngoài card header
+
+    .table-controls-search {
+        min-width: 200px;
+        flex-grow: 1;
+        @media (min-width: 576px) { flex-grow: 0; max-width: 300px;}
+    }
+    .table-controls-perpage {
+        min-width: 150px;
+        .form-select-sm { font-size: 0.8rem; padding-top: 0.3rem; padding-bottom: 0.3rem; }
+    }
+    .table-controls-extra { /* Cho các nút thêm (Add New) */ }
+}
+
+.table-responsive-custom { overflow-x: auto; }
+.custom-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--w-body-color);
+    vertical-align: middle;
+    border-color: var(--w-border-color); // Màu border cho table
+    font-size: 0.875rem;
+
+    th, td {
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--w-border-color);
+    }
+    thead th {
+        vertical-align: bottom;
+        border-bottom-width: 2px;
+        font-weight: 500;
+        color: var(--w-secondary-text-emphasis);
+        cursor: pointer; // Cho sort
+        white-space: nowrap; // Tránh xuống dòng tiêu đề
+        &:hover { color: var(--w-headings-color); }
+        .sort-icon { margin-left: 0.3em; opacity: 0.6; }
+    }
+    tbody tr {
+        &:hover { background-color: var(--w-body-tertiary-bg); }
+        td { line-height: 1.5; }
+    }
+    .text-center { text-align: center !important; }
+    .text-end { text-align: right !important; }
+    .fw-medium { font-weight: 500 !important; }
+    .d-block { display: block !important; }
+    .text-muted { color: var(--w-tertiary-color) !important; }
+
+    .badge-custom { // Thay thế Badge của Bootstrap
+        display: inline-block;
+        padding: .3em .6em;
+        font-size: 75%;
+        font-weight: 600;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: var(--w-border-radius-sm);
+        &.badge-success { background-color: var(--w-success-bg-subtle); color: var(--w-success-text-emphasis); }
+        &.badge-secondary { background-color: var(--w-secondary-bg-subtle); color: var(--w-secondary-text-emphasis); }
+        // Thêm các màu khác
+    }
+    .table-actions {
+        white-space: nowrap; // Ngăn các nút action xuống dòng
+        .btn-icon { /* Đã có style ở _buttons.scss */ }
+    }
+}
+
+.custom-table {
+    td {
+        .criteria-preview {
+            white-space: pre-wrap; // Cho phép xuống dòng và giữ khoảng trắng
+            font-size: 0.75rem;
+            background-color: var(--w-body-tertiary-bg);
+            padding: 0.3rem 0.5rem;
+            border-radius: var(--w-border-radius-xs);
+            max-height: 60px; // Giới hạn chiều cao
+            overflow-y: auto; // Scroll nếu dài
+            display: inline-block; // Để max-height hoạt động
+            max-width: 250px; // Giới hạn chiều rộng
+        }
+        i.fa-2x { // Icon trong bảng
+            font-size: 1.8em; // Điều chỉnh kích thước nếu cần
+            vertical-align: middle;
+        }
+        img.rounded { // Ảnh icon trong bảng
+            object-fit: contain;
+            background-color: var(--w-body-tertiary-bg); // Nền nhẹ cho ảnh
+            padding: 2px;
+            border: 1px solid var(--w-border-color-translucent);
+        }
+    }
+}
